@@ -1,7 +1,7 @@
-# Requirements: Jander Imóveis
+# Requirements: Jander Imoveis
 
 **Defined:** 2026-03-11
-**Core Value:** Quando o cliente recebe um link de imóvel no WhatsApp, ele vê um preview bonito, abre num site rápido e mobile-first com fotos grandes, e fala com o corretor em um toque.
+**Core Value:** Quando o cliente recebe um link de imovel no WhatsApp, ele ve um preview bonito, abre num site rapido e mobile-first com fotos grandes, e fala com o corretor em um toque.
 
 ## v1 Requirements
 
@@ -21,11 +21,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Property Management
 
-- [ ] **PROP-01**: Admin can create property with title, description, price (R$), type, bedrooms, bathrooms, area (m²), address, neighborhood
+- [ ] **PROP-01**: Admin can create property with title, description, price (R$), type, bedrooms, bathrooms, area (m2), address, neighborhood
 - [ ] **PROP-02**: Admin can set property location on a map (latitude/longitude picker)
 - [ ] **PROP-03**: Admin can edit all property fields
 - [ ] **PROP-04**: Admin can delete a property (with confirmation)
-- [ ] **PROP-05**: Admin can set property status: disponível, reservado, vendido
+- [ ] **PROP-05**: Admin can set property status: disponivel, reservado, vendido
 - [ ] **PROP-06**: Admin can mark a property as featured (destacado na home)
 - [ ] **PROP-07**: Admin sees property list with status, title, photo count, and actions
 
@@ -47,7 +47,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **LIST-04**: Visitor can filter by number of bedrooms
 - [ ] **LIST-05**: Filters are instant (client-side) with result count displayed
 - [ ] **LIST-06**: Featured properties appear in a highlighted section at the top of the listing
-- [ ] **LIST-07**: Property cards show status badge (disponível/reservado/vendido)
+- [ ] **LIST-07**: Property cards show status badge (disponivel/reservado/vendido)
 - [ ] **LIST-08**: Entire card is tappable to navigate to property detail
 
 ### Property Detail
@@ -56,7 +56,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **DETL-02**: Visitor can browse photo gallery with fullscreen swipe and pinch-to-zoom
 - [ ] **DETL-03**: Gallery shows photo count indicator (e.g., 3/12) in fullscreen
 - [ ] **DETL-04**: Visitor sees property location on a map (Leaflet + OpenStreetMap)
-- [ ] **DETL-05**: Visitor sees sticky WhatsApp button on mobile with pre-filled message ("Oi! Tenho interesse no imóvel: [título] - [link]")
+- [ ] **DETL-05**: Visitor sees sticky WhatsApp button on mobile with pre-filled message ("Oi! Tenho interesse no imovel: [titulo] - [link]")
 - [ ] **DETL-06**: Visitor can share property via Web Share API or copy link
 - [ ] **DETL-07**: Sold/reserved properties display status clearly but remain viewable
 
@@ -90,7 +90,7 @@ Deferred to future release. Tracked but not in current roadmap.
 
 ### Admin Enhancements
 
-- **ADM2-01**: Dashboard with property counters (total, disponíveis, reservados, vendidos)
+- **ADM2-01**: Dashboard with property counters (total, disponiveis, reservados, vendidos)
 - **ADM2-02**: Bulk property operations (multi-select, bulk status change)
 - **ADM2-03**: Property archive/history
 
@@ -105,7 +105,7 @@ Explicitly excluded. Documented to prevent scope creep.
 
 | Feature | Reason |
 |---------|--------|
-| User registration / favorites / saved searches | The broker IS the recommendation engine — sends links directly |
+| User registration / favorites / saved searches | The broker IS the recommendation engine -- sends links directly |
 | Virtual tours / 360 photos / video hosting | Overkill for ~20 properties; regular photos suffice |
 | Chat widget / real-time messaging | WhatsApp is the single communication channel |
 | Visit scheduling / calendar integration | Handled via WhatsApp conversation |
@@ -113,7 +113,7 @@ Explicitly excluded. Documented to prevent scope creep.
 | Multi-language (i18n) | 100% Brazilian audience, PT-BR only |
 | Mortgage calculator | Liability risk, banks have their own simulators |
 | Multi-user / role-based admin | Single broker, YAGNI |
-| Advanced search / full-text / autocomplete | ~20 properties — simple filters are sufficient |
+| Advanced search / full-text / autocomplete | ~20 properties -- simple filters are sufficient |
 | Mobile app nativo | Responsive web is sufficient |
 
 ## Traceability
@@ -122,62 +122,62 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | — | Pending |
-| AUTH-02 | — | Pending |
-| AUTH-03 | — | Pending |
-| AUTH-04 | — | Pending |
-| SETT-01 | — | Pending |
-| SETT-02 | — | Pending |
-| PROP-01 | — | Pending |
-| PROP-02 | — | Pending |
-| PROP-03 | — | Pending |
-| PROP-04 | — | Pending |
-| PROP-05 | — | Pending |
-| PROP-06 | — | Pending |
-| PROP-07 | — | Pending |
-| IMG-01 | — | Pending |
-| IMG-02 | — | Pending |
-| IMG-03 | — | Pending |
-| IMG-04 | — | Pending |
-| IMG-05 | — | Pending |
-| IMG-06 | — | Pending |
-| IMG-07 | — | Pending |
-| LIST-01 | — | Pending |
-| LIST-02 | — | Pending |
-| LIST-03 | — | Pending |
-| LIST-04 | — | Pending |
-| LIST-05 | — | Pending |
-| LIST-06 | — | Pending |
-| LIST-07 | — | Pending |
-| LIST-08 | — | Pending |
-| DETL-01 | — | Pending |
-| DETL-02 | — | Pending |
-| DETL-03 | — | Pending |
-| DETL-04 | — | Pending |
-| DETL-05 | — | Pending |
-| DETL-06 | — | Pending |
-| DETL-07 | — | Pending |
-| WAPP-01 | — | Pending |
-| WAPP-02 | — | Pending |
-| WAPP-03 | — | Pending |
-| WAPP-04 | — | Pending |
-| WAPP-05 | — | Pending |
-| PERF-01 | — | Pending |
-| PERF-02 | — | Pending |
-| PERF-03 | — | Pending |
-| PERF-04 | — | Pending |
-| SEO-01 | — | Pending |
-| SEO-02 | — | Pending |
-| SEO-03 | — | Pending |
-| INFR-01 | — | Pending |
-| INFR-02 | — | Pending |
-| INFR-03 | — | Pending |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Pending |
+| SETT-01 | Phase 1 | Pending |
+| SETT-02 | Phase 1 | Pending |
+| PROP-01 | Phase 2 | Pending |
+| PROP-02 | Phase 2 | Pending |
+| PROP-03 | Phase 2 | Pending |
+| PROP-04 | Phase 2 | Pending |
+| PROP-05 | Phase 2 | Pending |
+| PROP-06 | Phase 2 | Pending |
+| PROP-07 | Phase 2 | Pending |
+| IMG-01 | Phase 3 | Pending |
+| IMG-02 | Phase 3 | Pending |
+| IMG-03 | Phase 3 | Pending |
+| IMG-04 | Phase 3 | Pending |
+| IMG-05 | Phase 3 | Pending |
+| IMG-06 | Phase 3 | Pending |
+| IMG-07 | Phase 3 | Pending |
+| LIST-01 | Phase 4 | Pending |
+| LIST-02 | Phase 4 | Pending |
+| LIST-03 | Phase 4 | Pending |
+| LIST-04 | Phase 4 | Pending |
+| LIST-05 | Phase 4 | Pending |
+| LIST-06 | Phase 4 | Pending |
+| LIST-07 | Phase 4 | Pending |
+| LIST-08 | Phase 4 | Pending |
+| DETL-01 | Phase 4 | Pending |
+| DETL-02 | Phase 4 | Pending |
+| DETL-03 | Phase 4 | Pending |
+| DETL-04 | Phase 4 | Pending |
+| DETL-05 | Phase 4 | Pending |
+| DETL-06 | Phase 4 | Pending |
+| DETL-07 | Phase 4 | Pending |
+| WAPP-01 | Phase 4 | Pending |
+| WAPP-02 | Phase 4 | Pending |
+| WAPP-03 | Phase 4 | Pending |
+| WAPP-04 | Phase 4 | Pending |
+| WAPP-05 | Phase 4 | Pending |
+| PERF-01 | Phase 5 | Pending |
+| PERF-02 | Phase 5 | Pending |
+| PERF-03 | Phase 5 | Pending |
+| PERF-04 | Phase 5 | Pending |
+| SEO-01 | Phase 5 | Pending |
+| SEO-02 | Phase 5 | Pending |
+| SEO-03 | Phase 5 | Pending |
+| INFR-01 | Phase 1 | Pending |
+| INFR-02 | Phase 1 | Pending |
+| INFR-03 | Phase 1 | Pending |
 
 **Coverage:**
-- v1 requirements: 46 total
-- Mapped to phases: 0
-- Unmapped: 46 ⚠️
+- v1 requirements: 50 total
+- Mapped to phases: 50
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-11*
-*Last updated: 2026-03-11 after initial definition*
+*Last updated: 2026-03-11 after roadmap creation*
