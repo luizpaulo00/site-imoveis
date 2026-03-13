@@ -2,7 +2,7 @@
 phase: 1
 slug: foundation-and-auth
 status: draft
-nyquist_compliant: false
+nyquist_compliant: true
 wave_0_complete: false
 created: 2026-03-12
 ---
@@ -38,17 +38,17 @@ created: 2026-03-12
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 01-01-01 | 01 | 1 | AUTH-01 | integration | `npx vitest run src/__tests__/auth.test.ts -t "sign in"` | ❌ W0 | ⬜ pending |
-| 01-01-02 | 01 | 1 | AUTH-02 | integration | `npx vitest run src/__tests__/middleware.test.ts -t "refresh"` | ❌ W0 | ⬜ pending |
-| 01-01-03 | 01 | 1 | AUTH-03 | integration | `npx vitest run src/__tests__/auth.test.ts -t "sign out"` | ❌ W0 | ⬜ pending |
-| 01-01-04 | 01 | 1 | AUTH-04 | unit | `npx vitest run src/__tests__/middleware.test.ts -t "redirect"` | ❌ W0 | ⬜ pending |
-| 01-02-01 | 02 | 1 | SETT-01 | unit | `npx vitest run src/__tests__/settings.test.ts -t "whatsapp"` | ❌ W0 | ⬜ pending |
-| 01-02-02 | 02 | 1 | SETT-02 | unit | `npx vitest run src/__tests__/settings.test.ts -t "save"` | ❌ W0 | ⬜ pending |
-| 01-03-01 | 03 | 1 | INFR-01 | smoke | Manual — verify GitHub Action runs | N/A | ⬜ pending |
-| 01-03-02 | 03 | 1 | INFR-02 | manual-only | Check via Supabase dashboard | N/A | ⬜ pending |
-| 01-03-03 | 03 | 1 | INFR-03 | integration | `npx vitest run src/__tests__/rls.test.ts` | ❌ W0 | ⬜ pending |
+| 01-01-01 | 01 | 1 | AUTH-01 | integration | `npx vitest run src/__tests__/auth.test.ts -t "sign in"` | W0 | pending |
+| 01-01-02 | 01 | 1 | AUTH-02 | integration | `npx vitest run src/__tests__/middleware.test.ts -t "refresh"` | W0 | pending |
+| 01-01-03 | 01 | 1 | AUTH-03 | integration | `npx vitest run src/__tests__/auth.test.ts -t "sign out"` | W0 | pending |
+| 01-01-04 | 01 | 1 | AUTH-04 | unit | `npx vitest run src/__tests__/middleware.test.ts -t "redirect"` | W0 | pending |
+| 01-02-01 | 02 | 1 | SETT-01 | unit | `npx vitest run src/__tests__/settings.test.ts -t "whatsapp"` | W0 | pending |
+| 01-02-02 | 02 | 1 | SETT-02 | unit | `npx vitest run src/__tests__/settings.test.ts -t "save"` | W0 | pending |
+| 01-03-01 | 03 | 1 | INFR-01 | smoke | Manual — verify GitHub Action runs | N/A | pending |
+| 01-03-02 | 03 | 1 | INFR-02 | manual-only | Check via Supabase dashboard | N/A | pending |
+| 01-03-03 | 01 | 1 | INFR-03 | unit | `npx vitest run src/__tests__/rls.test.ts` | W0 | pending |
 
-*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+*Status: pending / green / red / flaky*
 
 ---
 
@@ -59,6 +59,7 @@ created: 2026-03-12
 - [ ] `src/__tests__/auth.test.ts` — Covers AUTH-01, AUTH-03
 - [ ] `src/__tests__/settings.test.ts` — Covers SETT-01, SETT-02
 - [ ] `src/__tests__/validations.test.ts` — Zod schema unit tests
+- [ ] `src/__tests__/rls.test.ts` — Static analysis of schema.sql for RLS coverage (INFR-03)
 - [ ] Framework install: `npm install -D vitest @vitejs/plugin-react @testing-library/react @testing-library/jest-dom`
 
 ---
@@ -74,11 +75,11 @@ created: 2026-03-12
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] Wave 0 covers all MISSING references
 - [ ] No watch-mode flags
 - [ ] Feedback latency < 15s
-- [ ] `nyquist_compliant: true` set in frontmatter
+- [x] `nyquist_compliant: true` set in frontmatter
 
 **Approval:** pending
