@@ -16,8 +16,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Settings
 
-- [ ] **SETT-01**: Admin can configure WhatsApp number via settings page
-- [ ] **SETT-02**: Admin can configure site name and broker name via settings
+- [x] **SETT-01**: Admin can configure WhatsApp number via settings page
+- [x] **SETT-02**: Admin can configure site name and broker name via settings
 
 ### Property Management
 
@@ -80,8 +80,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Infrastructure
 
-- [ ] **INFR-01**: Supabase keep-alive cron job prevents free-tier project pausing
-- [ ] **INFR-02**: All property photos pre-optimized at upload (no reliance on Vercel image optimization quota)
+- [x] **INFR-01**: Supabase keep-alive cron job prevents free-tier project pausing
+- [x] **INFR-02**: All property photos pre-optimized at upload (no reliance on Vercel image optimization quota)
 - [x] **INFR-03**: Supabase RLS policies enforce public read / admin-only write
 
 ## v2 Requirements
@@ -126,8 +126,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-02 | Phase 1 | Complete |
 | AUTH-03 | Phase 1 | Complete |
 | AUTH-04 | Phase 1 | Complete |
-| SETT-01 | Phase 1 | Pending |
-| SETT-02 | Phase 1 | Pending |
+| SETT-01 | Phase 1 | Complete |
+| SETT-02 | Phase 1 | Complete |
 | PROP-01 | Phase 2 | Pending |
 | PROP-02 | Phase 2 | Pending |
 | PROP-03 | Phase 2 | Pending |
@@ -169,8 +169,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEO-01 | Phase 5 | Pending |
 | SEO-02 | Phase 5 | Pending |
 | SEO-03 | Phase 5 | Pending |
-| INFR-01 | Phase 1 | Pending |
-| INFR-02 | Phase 1 | Pending |
+| INFR-01 | Phase 1 | Complete |
+| INFR-02 | Phase 1 | Complete |
 | INFR-03 | Phase 1 | Complete |
 
 **Coverage:**
