@@ -35,13 +35,13 @@ export function AppSidebar() {
   const pathname = usePathname()
 
   return (
-    <Sidebar className="border-r border-sidebar-border bg-zinc-900 text-zinc-100">
+    <Sidebar>
       <SidebarHeader className="px-4 py-4">
-        <span className="text-lg font-semibold tracking-tight text-white">
+        <span className="text-lg font-semibold tracking-tight text-sidebar-foreground">
           Jander Imoveis
         </span>
       </SidebarHeader>
-      <SidebarSeparator className="bg-zinc-700" />
+      <SidebarSeparator className="bg-sidebar-border" />
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
@@ -63,7 +63,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarSeparator className="bg-zinc-700" />
+        <SidebarSeparator className="bg-sidebar-border" />
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
