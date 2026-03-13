@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Skill(gsd:execute-phase)"
+      "Skill(gsd:execute-phase)",
+      "mcp__supabase__execute_sql",
+      "Bash(npx playwright:*)",
+      "Bash(npx @anthropic-ai/mcp-server-playwright@latest --help 2>/dev/null | head -5 || echo \"not found\")"
     ]
   }
 }
