@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Admin can log out from any admin page and is returned to login
   4. Admin can set the WhatsApp number and site/broker name in a settings page
   5. Supabase project does not pause due to inactivity (keep-alive cron is running)
-**Plans:** 3 plans
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 01-01-PLAN.md — Scaffold Next.js 15 project with Supabase clients, auth middleware, DB schema, and test infra
@@ -109,7 +109,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Auth | 0/3 | Not started | - |
+| 1. Foundation and Auth | 2/3 | In Progress|  |
 | 2. Property Management | 0/3 | Not started | - |
 | 3. Image Pipeline | 0/3 | Not started | - |
 | 4. Public Site and WhatsApp | 0/4 | Not started | - |

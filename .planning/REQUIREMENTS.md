@@ -9,9 +9,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Authentication
 
-- [ ] **AUTH-01**: User can log in with email and password (single admin user)
+- [x] **AUTH-01**: User can log in with email and password (single admin user)
 - [x] **AUTH-02**: User session persists across browser refresh
-- [ ] **AUTH-03**: User can log out from any page in the admin
+- [x] **AUTH-03**: User can log out from any page in the admin
 - [x] **AUTH-04**: Unauthenticated users are redirected from /admin/* routes to login
 
 ### Settings
@@ -122,9 +122,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
 | AUTH-02 | Phase 1 | Complete |
-| AUTH-03 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Complete |
 | AUTH-04 | Phase 1 | Complete |
 | SETT-01 | Phase 1 | Pending |
 | SETT-02 | Phase 1 | Pending |
