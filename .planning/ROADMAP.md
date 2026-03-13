@@ -46,12 +46,12 @@ Plans:
   2. Admin can edit any property field and delete a property with a confirmation step
   3. Admin can set property status (disponivel, reservado, vendido) and mark properties as featured
   4. Admin sees a property list showing each property's status, title, photo count, and action buttons
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md — Schema migration, Zod validation, CRUD server actions, currency utility, and dependency installation
+- [ ] 02-02-PLAN.md — Property form with currency mask, Leaflet map picker, create and edit pages
+- [ ] 02-03-PLAN.md — Property list table with status badges, filter tabs, delete confirmation, and empty state
 
 ### Phase 3: Image Pipeline
 **Goal**: The broker can upload and manage property photos that are automatically optimized to stay within free-tier storage limits and produce WhatsApp-ready images
