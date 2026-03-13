@@ -30,12 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Admin can log out from any admin page and is returned to login
   4. Admin can set the WhatsApp number and site/broker name in a settings page
   5. Supabase project does not pause due to inactivity (keep-alive cron is running)
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md — Scaffold Next.js 15 project with Supabase clients, auth middleware, DB schema, and test infra
+- [ ] 01-02-PLAN.md — Login page, auth Server Actions, admin layout with sidebar and logout
+- [ ] 01-03-PLAN.md — Settings page (WhatsApp, site name, broker name), keep-alive cron, storage bucket
 
 ### Phase 2: Property Management
 **Goal**: The broker can create, edit, and manage all property information through an intuitive admin interface
