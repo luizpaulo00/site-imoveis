@@ -148,3 +148,40 @@ CREATE POLICY "Authenticated users can delete property_images"
   ON public.property_images FOR DELETE
   TO authenticated
   USING (true);
+
+-- ============================================
+-- STORAGE BUCKET (create manually in Supabase Dashboard)
+-- ============================================
+-- Bucket name: property-images
+-- Public: true (images served directly via public URL)
+-- File size limit: 5MB
+-- Allowed MIME types: image/jpeg, image/png, image/webp
+--
+-- RLS policies (apply in Supabase Dashboard -> Storage -> Policies):
+-- SELECT: Allow public access (anon, authenticated)
+-- INSERT: Allow authenticated only
+-- UPDATE: Allow authenticated only
+-- DELETE: Allow authenticated only
+-- ============================================
+
+-- Storage bucket policies (run after creating bucket in dashboard)
+-- These use the storage schema, not public
+CREATE POLICY "Public read access for property images"
+  ON storage.objects FOR SELECT
+  TO anon, authenticated
+  USING (bucket_id = 'property-images');
+
+CREATE POLICY "Authenticated users can upload property images"
+  ON storage.objects FOR INSERT
+  TO authenticated
+  WITH CHECK (bucket_id = 'property-images');
+
+CREATE POLICY "Authenticated users can update property images"
+  ON storage.objects FOR UPDATE
+  TO authenticated
+  USING (bucket_id = 'property-images');
+
+CREATE POLICY "Authenticated users can delete property images"
+  ON storage.objects FOR DELETE
+  TO authenticated
+  USING (bucket_id = 'property-images');
