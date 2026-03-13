@@ -10,9 +10,9 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Authentication
 
 - [ ] **AUTH-01**: User can log in with email and password (single admin user)
-- [ ] **AUTH-02**: User session persists across browser refresh
+- [x] **AUTH-02**: User session persists across browser refresh
 - [ ] **AUTH-03**: User can log out from any page in the admin
-- [ ] **AUTH-04**: Unauthenticated users are redirected from /admin/* routes to login
+- [x] **AUTH-04**: Unauthenticated users are redirected from /admin/* routes to login
 
 ### Settings
 
@@ -82,7 +82,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **INFR-01**: Supabase keep-alive cron job prevents free-tier project pausing
 - [ ] **INFR-02**: All property photos pre-optimized at upload (no reliance on Vercel image optimization quota)
-- [ ] **INFR-03**: Supabase RLS policies enforce public read / admin-only write
+- [x] **INFR-03**: Supabase RLS policies enforce public read / admin-only write
 
 ## v2 Requirements
 
@@ -123,9 +123,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Complete |
 | AUTH-03 | Phase 1 | Pending |
-| AUTH-04 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Complete |
 | SETT-01 | Phase 1 | Pending |
 | SETT-02 | Phase 1 | Pending |
 | PROP-01 | Phase 2 | Pending |
@@ -171,7 +171,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEO-03 | Phase 5 | Pending |
 | INFR-01 | Phase 1 | Pending |
 | INFR-02 | Phase 1 | Pending |
-| INFR-03 | Phase 1 | Pending |
+| INFR-03 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 50 total
