@@ -4,6 +4,7 @@ import { getPropertyWithImages } from '@/lib/queries/property'
 import { getPublicSettings } from '@/lib/queries/settings'
 import { getOGImageUrl } from '@/lib/utils/image-url'
 import { formatOGDescription } from '@/lib/utils/og'
+import { buildPropertyJsonLd } from '@/lib/structured-data'
 import { PropertyDetail } from '@/components/public/property-detail'
 
 type Props = { params: Promise<{ id: string }> }
@@ -50,5 +51,18 @@ export default async function PropertyDetailPage({ params }: Props) {
     notFound()
   }
 
-  return <PropertyDetail property={property} settings={settings} />
+  const jsonLd = buildPropertyJsonLd(
+    property,
+    process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  )
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <PropertyDetail property={property} settings={settings} />
+    </>
+  )
 }
