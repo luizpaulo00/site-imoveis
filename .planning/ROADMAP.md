@@ -13,7 +13,7 @@ This roadmap delivers a mobile-first property showcase site for a solo Brazilian
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation and Auth** - Project scaffolding, database schema, Supabase auth, admin route protection, settings, and infrastructure guardrails
-- [ ] **Phase 2: Property Management** - Admin CRUD for properties with all fields, status management, featured toggle, and property list view
+- [x] **Phase 2: Property Management** - Admin CRUD for properties with all fields, status management, featured toggle, and property list view (completed 2026-03-14)
 - [ ] **Phase 3: Image Pipeline** - Multi-image upload with drag-and-drop, client-side compression, reorder, cover selection, and optimized variant generation
 - [ ] **Phase 4: Public Site and WhatsApp** - Property listing with filters, detail page with gallery and map, dynamic OG tags, sticky WhatsApp button, and share functionality
 - [ ] **Phase 5: Performance and SEO** - Skeleton loading states, lazy loading, Core Web Vitals optimization, JSON-LD structured data, and sitemap
@@ -46,7 +46,7 @@ Plans:
   2. Admin can edit any property field and delete a property with a confirmation step
   3. Admin can set property status (disponivel, reservado, vendido) and mark properties as featured
   4. Admin sees a property list showing each property's status, title, photo count, and action buttons
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Schema migration, Zod validation, CRUD server actions, currency utility, and dependency installation
@@ -110,7 +110,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Auth | 2/3 | In Progress|  |
-| 2. Property Management | 2/3 | In Progress|  |
+| 2. Property Management | 3/3 | Complete   | 2026-03-14 |
 | 3. Image Pipeline | 0/3 | Not started | - |
 | 4. Public Site and WhatsApp | 0/4 | Not started | - |
 | 5. Performance and SEO | 0/2 | Not started | - |

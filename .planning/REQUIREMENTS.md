@@ -27,7 +27,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **PROP-04**: Admin can delete a property (with confirmation)
 - [x] **PROP-05**: Admin can set property status: disponivel, reservado, vendido
 - [x] **PROP-06**: Admin can mark a property as featured (destacado na home)
-- [ ] **PROP-07**: Admin sees property list with status, title, photo count, and actions
+- [x] **PROP-07**: Admin sees property list with status, title, photo count, and actions
 
 ### Image Management
 
@@ -134,7 +134,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PROP-04 | Phase 2 | Complete |
 | PROP-05 | Phase 2 | Complete |
 | PROP-06 | Phase 2 | Complete |
-| PROP-07 | Phase 2 | Pending |
+| PROP-07 | Phase 2 | Complete |
 | IMG-01 | Phase 3 | Pending |
 | IMG-02 | Phase 3 | Pending |
 | IMG-03 | Phase 3 | Pending |
