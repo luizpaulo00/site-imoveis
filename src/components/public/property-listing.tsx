@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Star } from 'lucide-react'
+import { Star, SearchX } from 'lucide-react'
 import { PropertyCard } from '@/components/public/property-card'
 import {
   PropertyFilters,
@@ -60,9 +60,13 @@ export function PropertyListing({ properties }: PropertyListingProps) {
       />
 
       {filtered.length === 0 && (
-        <div className="rounded-2xl bg-white py-16 text-center shadow-sm">
-          <p className="text-lg text-gray-400">
+        <div className="rounded-2xl bg-white py-20 text-center shadow-sm">
+          <SearchX className="mx-auto h-12 w-12 text-gray-300" />
+          <p className="mt-4 text-lg font-medium text-gray-400">
             Nenhum imovel encontrado com esses filtros
+          </p>
+          <p className="mt-1 text-sm text-gray-400">
+            Tente ajustar seus criterios de busca
           </p>
           <button
             onClick={() =>
@@ -73,7 +77,7 @@ export function PropertyListing({ properties }: PropertyListingProps) {
                 bedrooms: null,
               })
             }
-            className="mt-3 cursor-pointer text-sm font-medium text-[#FF6A15] hover:underline"
+            className="mt-5 cursor-pointer rounded-full bg-[#FF6A15] px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#e55d10] hover:shadow-lg"
           >
             Limpar filtros
           </button>
@@ -88,10 +92,11 @@ export function PropertyListing({ properties }: PropertyListingProps) {
             Destaques
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featured.map((property) => (
+            {featured.map((property, i) => (
               <div
                 key={property.id}
-                className="overflow-hidden rounded-2xl ring-2 ring-[#FF6A15]/40"
+                className="animate-card-in overflow-hidden rounded-2xl ring-2 ring-[#FF6A15]/40"
+                style={{ animationDelay: `${i * 100}ms` }}
               >
                 <PropertyCard property={property} />
               </div>
@@ -107,8 +112,14 @@ export function PropertyListing({ properties }: PropertyListingProps) {
             Todos os Imoveis
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {regular.map((property) => (
-              <PropertyCard key={property.id} property={property} />
+            {regular.map((property, i) => (
+              <div
+                key={property.id}
+                className="animate-card-in"
+                style={{ animationDelay: `${(featured.length + i) * 100}ms` }}
+              >
+                <PropertyCard property={property} />
+              </div>
             ))}
           </div>
         </section>

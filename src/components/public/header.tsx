@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Phone } from 'lucide-react'
+import { Phone, Home } from 'lucide-react'
 
 interface PublicHeaderProps {
   whatsapp?: string
@@ -13,14 +13,33 @@ export function PublicHeader({ whatsapp }: PublicHeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-[#0D3B3B]/95 shadow-md backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/logo.svg"
-            alt="JV - Jander Venancio Corretor de Imoveis"
-            className="h-9 w-auto"
-          />
-        </Link>
+        <div className="flex items-center gap-6">
+          <Link href="/" className="flex items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo.svg"
+              alt="JV - Jander Venancio Corretor de Imoveis"
+              className="h-9 w-auto"
+            />
+          </Link>
+
+          {/* Nav links - desktop */}
+          <nav className="hidden items-center gap-1 sm:flex">
+            <Link
+              href="/"
+              className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              <Home className="h-3.5 w-3.5" />
+              Inicio
+            </Link>
+            <Link
+              href="/#imoveis"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              Imoveis
+            </Link>
+          </nav>
+        </div>
 
         {whatsappLink && (
           <a

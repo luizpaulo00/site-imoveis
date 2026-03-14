@@ -134,9 +134,41 @@
   }
 }
 
+/* Animate on scroll */
+.aos-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.aos-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Property card entrance */
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-card-in {
+  animation: card-in 0.5s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+  .aos-hidden {
+    opacity: 1;
+    transform: none;
   }
 }
