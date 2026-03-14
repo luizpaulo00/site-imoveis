@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import { createClient } from '@/lib/supabase/server'
 
 export interface PublicSettings {
@@ -6,7 +7,7 @@ export interface PublicSettings {
   brokerName: string
 }
 
-export async function getPublicSettings(): Promise<PublicSettings> {
+export const getPublicSettings = cache(async (): Promise<PublicSettings> => {
   const supabase = await createClient()
 
   const { data, error } = await supabase
@@ -23,4 +24,4 @@ export async function getPublicSettings(): Promise<PublicSettings> {
     siteName: data.site_name ?? '',
     brokerName: data.broker_name ?? '',
   }
-}
+})

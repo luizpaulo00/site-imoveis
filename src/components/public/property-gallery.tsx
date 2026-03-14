@@ -11,15 +11,10 @@ import 'swiper/css/zoom'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-interface GalleryImage {
-  id: string
-  storage_path: string
-  is_cover: boolean
-  position: number
-}
+import type { PublicPropertyImage } from '@/lib/queries/properties'
 
 interface PropertyGalleryProps {
-  images: GalleryImage[]
+  images: PublicPropertyImage[]
   propertyTitle?: string
 }
 

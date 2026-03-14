@@ -4,6 +4,8 @@ import { PublicHeader } from '@/components/public/header'
 import { PublicFooter } from '@/components/public/footer'
 import { getPublicSettings } from '@/lib/queries/settings'
 
+export const revalidate = 60
+
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],

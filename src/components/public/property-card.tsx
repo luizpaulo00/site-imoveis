@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Bed, Bath, Ruler, MapPin } from 'lucide-react'
 import { PropertyStatusBadge } from '@/components/admin/property-status-badge'
 import { formatCurrency } from '@/lib/utils/currency'
@@ -26,11 +27,12 @@ export function PropertyCard({ property }: PropertyCardProps) {
         {/* Cover image */}
         <figure className="relative aspect-[4/3] overflow-hidden">
           {property.cover ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={getImageUrl(property.cover.storage_path)}
               alt={property.title}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
             />
           ) : (

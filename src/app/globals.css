@@ -126,6 +126,7 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
     touch-action: manipulation;
   }
   a:focus-visible, button:focus-visible {

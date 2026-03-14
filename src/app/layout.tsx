@@ -17,8 +17,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
   ),
-  title: "Jander Imoveis",
-  description: "Sistema de gestao imobiliaria",
+  title: {
+    default: "Jander Venancio — Corretor de Imoveis em Goiania",
+    template: "%s | Jander Venancio",
+  },
+  description:
+    "Casas e apartamentos selecionados em Goiania com atendimento personalizado. Encontre seu imovel ideal com Jander Venancio, corretor de imoveis.",
 };
 
 export default function RootLayout({

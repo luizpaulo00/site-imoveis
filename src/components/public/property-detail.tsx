@@ -114,7 +114,7 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
                   {spec.value}
                 </span>
                 <span className="text-xs text-gray-500">
-                  {spec.suffix ? spec.label : spec.label}
+                  {spec.label}
                 </span>
               </div>
             ))}

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { MessageCircle, ArrowRight } from 'lucide-react'
 import { AnimateOnScroll } from './animate-on-scroll'
+import { formatWhatsAppUrl } from '@/lib/utils/whatsapp'
 
 interface CtaSectionProps {
   whatsapp: string
@@ -8,8 +9,9 @@ interface CtaSectionProps {
 }
 
 export function CtaSection({ whatsapp, brokerName }: CtaSectionProps) {
-  const whatsappLink = whatsapp
-    ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Oi! Gostaria de saber mais sobre os imoveis disponiveis.')}`
+  const hasPhone = whatsapp.replace(/\D/g, '').length > 0
+  const whatsappLink = hasPhone
+    ? formatWhatsAppUrl(whatsapp, 'Oi! Gostaria de saber mais sobre os imoveis disponiveis.')
     : null
 
   return (

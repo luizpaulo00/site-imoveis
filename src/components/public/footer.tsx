@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import { MessageCircle, Instagram, Phone, MapPin } from 'lucide-react'
+import Image from 'next/image'
+import { MessageCircle, Phone, MapPin } from 'lucide-react'
+import { formatWhatsAppUrl } from '@/lib/utils/whatsapp'
 
 interface PublicFooterProps {
   brokerName: string
@@ -9,11 +11,10 @@ interface PublicFooterProps {
 export function PublicFooter({ brokerName, whatsapp }: PublicFooterProps) {
   const year = new Date().getFullYear()
 
-  const whatsappLink = whatsapp
-    ? `https://wa.me/55${whatsapp.replace(/\D/g, '')}`
-    : null
+  const hasPhone = whatsapp.replace(/\D/g, '').length > 0
+  const whatsappLink = hasPhone ? formatWhatsAppUrl(whatsapp, '') : null
 
-  const whatsappFormatted = whatsapp
+  const whatsappFormatted = hasPhone
     ? whatsapp.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
     : null
 
@@ -23,10 +24,11 @@ export function PublicFooter({ brokerName, whatsapp }: PublicFooterProps) {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/logo.svg"
               alt={brokerName || 'Jander Venancio'}
+              width={88}
+              height={40}
               className="h-10 w-auto"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/50">
@@ -66,10 +68,10 @@ export function PublicFooter({ brokerName, whatsapp }: PublicFooterProps) {
               Contato
             </h3>
             <ul className="space-y-3">
-              {whatsappFormatted && (
+              {whatsappFormatted && whatsappLink && (
                 <li>
                   <a
-                    href={whatsappLink!}
+                    href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-[#FF6A15]"
@@ -98,13 +100,6 @@ export function PublicFooter({ brokerName, whatsapp }: PublicFooterProps) {
                   <MessageCircle className="h-5 w-5" />
                 </a>
               )}
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/60 transition-all hover:bg-[#FF6A15] hover:text-white"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
             </div>
           </div>
         </div>

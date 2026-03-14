@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import { createClient } from '@/lib/supabase/server'
 
 export interface PublicPropertyImage {
@@ -22,7 +23,7 @@ export interface PublicProperty {
   cover: PublicPropertyImage | null
 }
 
-export async function getPublicProperties(): Promise<PublicProperty[]> {
+export const getPublicProperties = cache(async (): Promise<PublicProperty[]> => {
   const supabase = await createClient()
 
   const { data, error } = await supabase
@@ -60,4 +61,4 @@ export async function getPublicProperties(): Promise<PublicProperty[]> {
       cover: coverImage,
     }
   })
-}
+})

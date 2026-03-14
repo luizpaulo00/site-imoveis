@@ -4,6 +4,7 @@ import { PropertyListing } from '@/components/public/property-listing'
 import { StatsSection } from '@/components/public/stats-section'
 import { DifferentialsSection } from '@/components/public/differentials-section'
 import { CtaSection } from '@/components/public/cta-section'
+import { formatWhatsAppUrl } from '@/lib/utils/whatsapp'
 import { Search, ChevronDown } from 'lucide-react'
 
 export default async function HomePage() {
@@ -53,9 +54,9 @@ export default async function HomePage() {
                 <Search className="h-4 w-4" />
                 Ver imoveis
               </a>
-              {settings.whatsapp && (
+              {settings.whatsapp && settings.whatsapp.replace(/\D/g, '').length > 0 && (
                 <a
-                  href={`https://wa.me/55${settings.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Oi! Gostaria de saber mais sobre os imoveis disponiveis.')}`}
+                  href={formatWhatsAppUrl(settings.whatsapp, 'Oi! Gostaria de saber mais sobre os imoveis disponiveis.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5"
@@ -95,7 +96,7 @@ export default async function HomePage() {
           </p>
         </div>
 
-        <PropertyListing properties={properties} settings={settings} />
+        <PropertyListing properties={properties} />
       </section>
 
       {/* Differentials */}

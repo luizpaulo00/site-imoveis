@@ -8,11 +8,9 @@ import {
   type FilterState,
 } from '@/components/public/property-filters'
 import type { PublicProperty } from '@/lib/queries/properties'
-import type { PublicSettings } from '@/lib/queries/settings'
 
 interface PropertyListingProps {
   properties: PublicProperty[]
-  settings: PublicSettings
 }
 
 export function PropertyListing({ properties }: PropertyListingProps) {
