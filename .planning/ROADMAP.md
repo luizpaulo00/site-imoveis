@@ -46,7 +46,7 @@ Plans:
   2. Admin can edit any property field and delete a property with a confirmation step
   3. Admin can set property status (disponivel, reservado, vendido) and mark properties as featured
   4. Admin sees a property list showing each property's status, title, photo count, and action buttons
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 02-01-PLAN.md — Schema migration, Zod validation, CRUD server actions, currency utility, and dependency installation
@@ -110,7 +110,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Auth | 2/3 | In Progress|  |
-| 2. Property Management | 1/3 | In Progress|  |
+| 2. Property Management | 2/3 | In Progress|  |
 | 3. Image Pipeline | 0/3 | Not started | - |
 | 4. Public Site and WhatsApp | 0/4 | Not started | - |
 | 5. Performance and SEO | 0/2 | Not started | - |
