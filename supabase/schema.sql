@@ -185,3 +185,10 @@ CREATE POLICY "Authenticated users can delete property images"
   ON storage.objects FOR DELETE
   TO authenticated
   USING (bucket_id = 'property-images');
+
+-- ============================================
+-- Phase 2 Migration: Property Management
+-- Run these ALTER statements on existing database
+-- ============================================
+ALTER TABLE public.properties ADD COLUMN IF NOT EXISTS parking_spaces INT;
+ALTER TABLE public.properties ADD COLUMN IF NOT EXISTS condition TEXT CHECK (condition IN ('novo', 'usado'));

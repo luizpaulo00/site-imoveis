@@ -19,6 +19,7 @@ export type Property = {
   property_type: string | null
   bedrooms: number | null
   bathrooms: number | null
+  parking_spaces: number | null
   area: number | null
   address: string | null
   neighborhood: string | null
@@ -27,6 +28,7 @@ export type Property = {
   latitude: number | null
   longitude: number | null
   status: 'disponivel' | 'reservado' | 'vendido'
+  condition: 'novo' | 'usado' | null
   featured: boolean
   created_at: string
   updated_at: string
@@ -64,11 +66,13 @@ export type Database = {
       }
       properties: {
         Row: Property
-        Insert: Omit<Property, 'id' | 'created_at' | 'updated_at' | 'status' | 'featured'> & {
+        Insert: Omit<Property, 'id' | 'created_at' | 'updated_at' | 'status' | 'featured' | 'condition' | 'parking_spaces'> & {
           id?: string
           created_at?: string
           updated_at?: string
           status?: 'disponivel' | 'reservado' | 'vendido'
+          condition?: 'novo' | 'usado' | null
+          parking_spaces?: number | null
           featured?: boolean
         }
         Update: Partial<Omit<Property, 'id'>>
