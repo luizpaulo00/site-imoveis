@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 03 context gathered
-last_updated: "2026-03-14T01:22:31.293Z"
-last_activity: 2026-03-14 -- Completed 02-03 property list page (status tabs, data table, delete dialog)
+status: in-progress
+stopped_at: Completed 03-01 image pipeline foundations
+last_updated: "2026-03-14T02:24:24Z"
+last_activity: 2026-03-14 -- Completed 03-01 image validation, server actions, and upload hook
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 6
-  completed_plans: 6
-  percent: 100
+  total_plans: 9
+  completed_plans: 7
+  percent: 78
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-11)
 
 **Core value:** Quando o cliente recebe um link de imovel no WhatsApp, ele ve um preview bonito, abre num site rapido e mobile-first com fotos grandes, e fala com o corretor em um toque.
-**Current focus:** Phase 2 - Property Management
+**Current focus:** Phase 3 - Image Pipeline
 
 ## Current Position
 
-Phase: 2 of 5 (Property Management)
-Plan: 3 of 3
-Status: Phase Complete
-Last activity: 2026-03-14 -- Completed 02-03 property list page (status tabs, data table, delete dialog)
+Phase: 3 of 5 (Image Pipeline)
+Plan: 1 of 2
+Status: In Progress
+Last activity: 2026-03-14 -- Completed 03-01 image validation, server actions, and upload hook
 
-Progress: [██████████] 100%
+Progress: [████████░░] 78%
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Progress: [██████████] 100%
 | Phase 02 P01 | 5min | 2 tasks | 17 files |
 | Phase 02 P02 | 307s | 2 tasks | 5 files |
 | Phase 02 P03 | 5min | 2 tasks | 3 files |
+| Phase 03 P01 | 3min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -81,6 +82,10 @@ Recent decisions affecting current work:
 - [Phase 02]: Shared PropertyForm with optional property prop for create vs edit mode
 - [02-03]: Used Tabs for visual tab bar only, rendered content outside TabsContent for base-ui compatibility
 - [02-03]: Used router.refresh() after delete for server data consistency instead of optimistic updates
+- [03-01]: Sequential upload queue (one file at a time) to avoid memory issues with large batches
+- [03-01]: Dynamic import of heic2any only when HEIC file detected to avoid 200KB+ bundle cost
+- [03-01]: Compression progress mapped to 10-80% range, upload at 85-100% for smooth UX
+- [03-01]: Integer-based positioning for reorder (max 15 photos, float positioning unnecessary)
 
 ### Pending Todos
 
@@ -94,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T01:22:31.289Z
-Stopped at: Phase 03 context gathered
-Resume file: .planning/phases/03-image-pipeline/03-CONTEXT.md
+Last session: 2026-03-14T02:24:24Z
+Stopped at: Completed 03-01 image pipeline foundations
+Resume file: .planning/phases/03-image-pipeline/03-01-SUMMARY.md
