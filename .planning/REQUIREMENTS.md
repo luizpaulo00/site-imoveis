@@ -56,17 +56,17 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **DETL-02**: Visitor can browse photo gallery with fullscreen swipe and pinch-to-zoom
 - [x] **DETL-03**: Gallery shows photo count indicator (e.g., 3/12) in fullscreen
 - [x] **DETL-04**: Visitor sees property location on a map (Leaflet + OpenStreetMap)
-- [ ] **DETL-05**: Visitor sees sticky WhatsApp button on mobile with pre-filled message ("Oi! Tenho interesse no imovel: [titulo] - [link]")
-- [ ] **DETL-06**: Visitor can share property via Web Share API or copy link
+- [x] **DETL-05**: Visitor sees sticky WhatsApp button on mobile with pre-filled message ("Oi! Tenho interesse no imovel: [titulo] - [link]")
+- [x] **DETL-06**: Visitor can share property via Web Share API or copy link
 - [x] **DETL-07**: Sold/reserved properties display status clearly but remain viewable
 
 ### WhatsApp & Open Graph
 
-- [ ] **WAPP-01**: Each property page has dynamic Open Graph meta tags (og:title, og:description, og:image)
-- [ ] **WAPP-02**: OG image is the cover photo, optimized to <200KB and 1200x630px ratio
-- [ ] **WAPP-03**: OG description includes price and key specs
-- [ ] **WAPP-04**: WhatsApp link preview shows property photo, title, and price correctly
-- [ ] **WAPP-05**: URL versioning (?v=timestamp) ensures updated properties get fresh previews
+- [x] **WAPP-01**: Each property page has dynamic Open Graph meta tags (og:title, og:description, og:image)
+- [x] **WAPP-02**: OG image is the cover photo, optimized to <200KB and 1200x630px ratio
+- [x] **WAPP-03**: OG description includes price and key specs
+- [x] **WAPP-04**: WhatsApp link preview shows property photo, title, and price correctly
+- [x] **WAPP-05**: URL versioning (?v=timestamp) ensures updated properties get fresh previews
 
 ### SEO & Performance
 
@@ -154,14 +154,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DETL-02 | Phase 4 | Complete |
 | DETL-03 | Phase 4 | Complete |
 | DETL-04 | Phase 4 | Complete |
-| DETL-05 | Phase 4 | Pending |
-| DETL-06 | Phase 4 | Pending |
+| DETL-05 | Phase 4 | Complete |
+| DETL-06 | Phase 4 | Complete |
 | DETL-07 | Phase 4 | Complete |
-| WAPP-01 | Phase 4 | Pending |
-| WAPP-02 | Phase 4 | Pending |
-| WAPP-03 | Phase 4 | Pending |
-| WAPP-04 | Phase 4 | Pending |
-| WAPP-05 | Phase 4 | Pending |
+| WAPP-01 | Phase 4 | Complete |
+| WAPP-02 | Phase 4 | Complete |
+| WAPP-03 | Phase 4 | Complete |
+| WAPP-04 | Phase 4 | Complete |
+| WAPP-05 | Phase 4 | Complete |
 | PERF-01 | Phase 5 | Pending |
 | PERF-02 | Phase 5 | Pending |
 | PERF-03 | Phase 5 | Pending |
