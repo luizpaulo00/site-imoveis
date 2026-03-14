@@ -78,9 +78,12 @@ export function PropertyForm({ property }: PropertyFormProps) {
 
       if ('error' in result) {
         toast.error(result.error)
-      } else {
-        toast.success(isEdit ? 'Imovel atualizado' : 'Imovel criado')
+      } else if (isEdit) {
+        toast.success('Imovel atualizado')
         router.push('/admin/imoveis')
+      } else if ('id' in result) {
+        toast.success('Imovel criado! Agora adicione as fotos.')
+        router.push(`/admin/imoveis/${result.id}/editar`)
       }
     } catch {
       toast.error('Erro ao salvar imovel')

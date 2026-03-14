@@ -1,8 +1,11 @@
 import { redirect } from 'next/navigation'
 import { AdminTopbar } from '@/components/admin/admin-topbar'
 import { PropertyForm } from '@/components/admin/property-form'
+import { ImageManager } from '@/components/admin/image-manager/image-manager'
 import { getProperty } from '@/actions/properties'
+import { createClient } from '@/lib/supabase/server'
 import type { PropertyFormData } from '@/lib/validations/property'
+import type { ImageRecord } from '@/components/admin/image-manager/image-thumbnail'
 
 export default async function EditarImovelPage({
   params,
@@ -15,6 +18,14 @@ export default async function EditarImovelPage({
   if (!property) {
     redirect('/admin/imoveis')
   }
+
+  // Fetch property images
+  const supabase = await createClient()
+  const { data: images } = await supabase
+    .from('property_images')
+    .select('id, storage_path, position, is_cover')
+    .eq('property_id', id)
+    .order('position', { ascending: true })
 
   const propertyData = {
     id: property.id as string,
@@ -35,10 +46,19 @@ export default async function EditarImovelPage({
     featured: (property.featured as boolean) ?? false,
   }
 
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+
   return (
     <>
       <AdminTopbar title="Editar Imovel" />
       <PropertyForm property={propertyData} />
+      <div className="p-4 max-w-2xl">
+        <ImageManager
+          propertyId={id}
+          initialImages={(images ?? []) as ImageRecord[]}
+          supabaseUrl={supabaseUrl}
+        />
+      </div>
     </>
   )
 }
