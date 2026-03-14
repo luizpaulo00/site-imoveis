@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Property Management** - Admin CRUD for properties with all fields, status management, featured toggle, and property list view (completed 2026-03-14)
 - [ ] **Phase 3: Image Pipeline** - Multi-image upload with drag-and-drop, client-side compression, reorder, cover selection, and optimized variant generation
 - [x] **Phase 4: Public Site and WhatsApp** - Property listing with filters, detail page with gallery and map, dynamic OG tags, sticky WhatsApp button, and share functionality (completed 2026-03-14)
-- [ ] **Phase 5: Performance and SEO** - Skeleton loading states, lazy loading, Core Web Vitals optimization, JSON-LD structured data, and sitemap
+- [x] **Phase 5: Performance and SEO** - Skeleton loading states, lazy loading, Core Web Vitals optimization, JSON-LD structured data, and sitemap (completed 2026-03-14)
 
 ## Phase Details
 
@@ -95,7 +95,7 @@ Plans:
   2. Images below the fold are lazy-loaded and the site achieves LCP under 2.5s on a simulated 4G connection
   3. Property pages include JSON-LD structured data using RealEstateListing schema
   4. A sitemap.xml is auto-generated with all property page URLs and the site uses semantic HTML with proper heading hierarchy
-**Plans:** 1/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 05-00-PLAN.md — Wave 0 test stubs for all Phase 5 verification points
@@ -113,4 +113,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Property Management | 3/3 | Complete   | 2026-03-14 |
 | 3. Image Pipeline | 2/3 | In Progress|  |
 | 4. Public Site and WhatsApp | 3/3 | Complete   | 2026-03-14 |
-| 5. Performance and SEO | 1/3 | In Progress|  |
+| 5. Performance and SEO | 3/3 | Complete   | 2026-03-14 |

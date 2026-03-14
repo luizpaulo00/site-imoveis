@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in-progress
-stopped_at: Completed 05-00-PLAN.md
-last_updated: "2026-03-14T14:33:05Z"
-last_activity: 2026-03-14 -- Completed 05-00 Phase 5 Test Stubs
+status: executing
+stopped_at: Completed 05-01-PLAN.md
+last_updated: "2026-03-14T14:38:50.801Z"
+last_activity: 2026-03-14 -- Completed 05-02 SEO Structured Data & Sitemap
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 15
-  completed_plans: 13
-  percent: 87
+  completed_plans: 15
+  percent: 100
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-11)
 ## Current Position
 
 Phase: 5 of 5 (Performance and SEO)
-Plan: 1 of 3
+Plan: 3 of 3
 Status: In Progress
-Last activity: 2026-03-14 -- Completed 05-00 Phase 5 Test Stubs
+Last activity: 2026-03-14 -- Completed 05-02 SEO Structured Data & Sitemap
 
-Progress: [█████████░] 87%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -61,6 +61,8 @@ Progress: [█████████░] 87%
 | Phase 04 P02 | 3min | 2 tasks | 6 files |
 | Phase 04 P03 | 3min | 2 tasks | 7 files |
 | Phase 05 P00 | 1min | 1 tasks | 5 files |
+| Phase 05 P02 | 2min | 2 tasks | 6 files |
+| Phase 05 P01 | 2min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -109,6 +111,12 @@ Recent decisions affecting current work:
 - [04-03]: Country code startsWith('55') check to avoid double-prefixing
 - [05-00]: Used it.todo() for vitest stubs and test.skip() for Playwright stubs
 - [05-00]: E2E tests in tests/e2e/ directory separate from unit tests in src/__tests__/
+- [Phase 05]: JSON-LD price as raw number string (Google requirement) via String(property.price)
+- [Phase 05]: Sitemap includes all properties regardless of status (sold/reserved still viewable)
+- [Phase 05]: Used Next.js metadata route conventions (sitemap.ts, robots.ts) for auto-generation
+- [Phase 05]: Skeleton dimensions match real component layouts to minimize CLS
+- [Phase 05]: First gallery image eager-loaded for LCP, all others lazy
+- [Phase 05]: article/figure/section semantic elements added without changing visual appearance
 
 ### Pending Todos
 
@@ -122,6 +130,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T14:33:05Z
-Stopped at: Completed 05-00-PLAN.md
+Last session: 2026-03-14T14:38:50.797Z
+Stopped at: Completed 05-01-PLAN.md
 Resume file: None
