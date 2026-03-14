@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { Star } from 'lucide-react'
 import { PropertyCard } from '@/components/public/property-card'
 import {
   PropertyFilters,
@@ -24,16 +25,11 @@ export function PropertyListing({ properties }: PropertyListingProps) {
 
   const filtered = useMemo(() => {
     return properties.filter((p) => {
-      // Type filter
       if (filters.type && p.property_type !== filters.type) return false
-
-      // Price range filter
       if (filters.priceMin != null && (p.price ?? 0) < filters.priceMin)
         return false
       if (filters.priceMax != null && (p.price ?? 0) > filters.priceMax)
         return false
-
-      // Bedrooms filter
       if (filters.bedrooms != null) {
         const beds = p.bedrooms ?? 0
         if (filters.bedrooms === 4) {
@@ -42,7 +38,6 @@ export function PropertyListing({ properties }: PropertyListingProps) {
           if (beds !== filters.bedrooms) return false
         }
       }
-
       return true
     })
   }, [properties, filters])
@@ -65,24 +60,38 @@ export function PropertyListing({ properties }: PropertyListingProps) {
       />
 
       {filtered.length === 0 && (
-        <div className="py-12 text-center">
-          <p className="text-lg text-gray-500">
+        <div className="rounded-2xl bg-white py-16 text-center shadow-sm">
+          <p className="text-lg text-gray-400">
             Nenhum imovel encontrado com esses filtros
           </p>
+          <button
+            onClick={() =>
+              setFilters({
+                type: null,
+                priceMin: null,
+                priceMax: null,
+                bedrooms: null,
+              })
+            }
+            className="mt-3 cursor-pointer text-sm font-medium text-[#FF6A15] hover:underline"
+          >
+            Limpar filtros
+          </button>
         </div>
       )}
 
       {/* Featured section */}
       {featured.length > 0 && (
-        <section className="mb-8">
-          <h2 className="mb-4 text-lg font-semibold text-gray-900">
+        <section className="mb-10">
+          <h2 className="mb-5 flex items-center gap-2 font-[family-name:var(--font-display,var(--font-poppins))] text-xl font-bold text-[#0D3B3B]">
+            <Star className="h-5 w-5 fill-[#FF6A15] text-[#FF6A15]" />
             Destaques
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((property) => (
               <div
                 key={property.id}
-                className="rounded-xl ring-2 ring-[#FF6A15]/30"
+                className="overflow-hidden rounded-2xl ring-2 ring-[#FF6A15]/40"
               >
                 <PropertyCard property={property} />
               </div>
@@ -94,7 +103,7 @@ export function PropertyListing({ properties }: PropertyListingProps) {
       {/* All properties section */}
       {regular.length > 0 && (
         <section>
-          <h2 className="mb-4 text-lg font-semibold text-gray-900">
+          <h2 className="mb-5 font-[family-name:var(--font-display,var(--font-poppins))] text-xl font-bold text-[#0D3B3B]">
             Todos os Imoveis
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

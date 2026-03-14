@@ -26,10 +26,10 @@ export default async function PublicLayout({
 
   return (
     <div
-      className={`${poppins.variable} ${displayFont.variable} min-h-screen font-[family-name:var(--font-poppins)]`}
+      className={`${poppins.variable} ${displayFont.variable} min-h-screen bg-[#F8F5F0] font-[family-name:var(--font-poppins)]`}
     >
-      <PublicHeader />
-      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <PublicHeader whatsapp={settings.whatsapp} />
+      <main>
         {children}
       </main>
       <PublicFooter

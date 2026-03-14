@@ -29,11 +29,11 @@ const conditionLabels: Record<string, string> = {
 const statusBannerConfig = {
   reservado: {
     label: 'Este imovel esta reservado',
-    className: 'bg-amber-100 text-amber-800 border-amber-300',
+    className: 'bg-amber-50 text-amber-800 border-amber-200',
   },
   vendido: {
     label: 'Este imovel foi vendido',
-    className: 'bg-red-100 text-red-800 border-red-300',
+    className: 'bg-red-50 text-red-800 border-red-200',
   },
 } as const
 
@@ -62,24 +62,24 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
     .join(', ')
 
   return (
-    <article className="mx-auto max-w-4xl">
-      {/* Status banner for sold/reserved */}
-      {isSoldOrReserved && (
-        <div
-          className={`mb-4 rounded-lg border px-4 py-3 text-center font-medium ${statusBannerConfig[property.status as 'reservado' | 'vendido'].className}`}
-        >
-          {statusBannerConfig[property.status as 'reservado' | 'vendido'].label}
-        </div>
-      )}
+    <article>
+      {/* Gallery - full width */}
+      <PropertyGallery images={property.property_images} propertyTitle={property.title} />
 
-      {/* Gallery */}
-      <PropertyGallery images={property.property_images} />
+      {/* Content container */}
+      <div className="mx-auto max-w-4xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+        {/* Status banner */}
+        {isSoldOrReserved && (
+          <div
+            className={`mb-6 rounded-xl border px-4 py-3 text-center text-sm font-semibold ${statusBannerConfig[property.status as 'reservado' | 'vendido'].className}`}
+          >
+            {statusBannerConfig[property.status as 'reservado' | 'vendido'].label}
+          </div>
+        )}
 
-      {/* Content */}
-      <div className="mt-6 space-y-6 px-4 pb-8 md:px-0">
-        {/* Title + Status + Share */}
+        {/* Title + Share */}
         <div className="flex items-start gap-3">
-          <h1 className="flex-1 text-2xl font-bold leading-tight md:text-3xl">
+          <h1 className="flex-1 font-[family-name:var(--font-display,var(--font-poppins))] text-2xl font-bold leading-tight text-[#0D3B3B] md:text-3xl">
             {property.title}
           </h1>
           <ShareButton title={property.title} url={propertyUrl} />
@@ -89,91 +89,98 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
         </div>
 
         {/* Price */}
-        <p className="text-3xl font-bold" style={{ color: '#FF6A15' }}>
+        <p className="mt-2 text-3xl font-bold text-[#FF6A15]">
           {formatCurrency(property.price)}
         </p>
 
-        {/* Specs row */}
+        {/* Location */}
+        {(property.neighborhood || fullAddress) && (
+          <div className="mt-3 flex items-center gap-2 text-gray-500">
+            <MapPin className="h-4 w-4 shrink-0" />
+            <span className="text-sm">{property.neighborhood || fullAddress}</span>
+          </div>
+        )}
+
+        {/* Specs cards */}
         {specs.length > 0 && (
-          <div className="flex gap-6 overflow-x-auto pb-1">
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {specs.map((spec) => (
               <div
                 key={spec.label}
-                className="flex shrink-0 items-center gap-2 text-muted-foreground"
+                className="flex flex-col items-center rounded-xl bg-white p-4 shadow-sm"
               >
-                <spec.icon className="h-5 w-5" />
-                <span className="text-base font-medium text-foreground">
+                <spec.icon className="h-6 w-6 text-[#0D3B3B]/60" />
+                <span className="mt-1.5 text-xl font-bold text-[#0D3B3B]">
                   {spec.value}
-                  {spec.suffix ? '' : ` ${spec.label}`}
-                  {spec.suffix ? ` ${spec.label}` : ''}
+                </span>
+                <span className="text-xs text-gray-500">
+                  {spec.suffix ? spec.label : spec.label}
                 </span>
               </div>
             ))}
           </div>
         )}
 
-        {/* Neighborhood / Address */}
-        {(property.neighborhood || fullAddress) && (
-          <div className="flex items-start gap-2 text-muted-foreground">
-            <MapPin className="mt-0.5 h-5 w-5 shrink-0" />
-            <span>{property.neighborhood || fullAddress}</span>
-          </div>
-        )}
-
         {/* Description */}
         {property.description && (
-          <section>
-            <h2 className="mb-2 text-lg font-semibold">Descricao</h2>
-            <p className="whitespace-pre-wrap text-muted-foreground leading-relaxed">
-              {property.description}
-            </p>
+          <section className="mt-8">
+            <h2 className="mb-3 font-[family-name:var(--font-display,var(--font-poppins))] text-lg font-bold text-[#0D3B3B]">
+              Descricao
+            </h2>
+            <div className="rounded-xl bg-white p-5 shadow-sm">
+              <p className="whitespace-pre-wrap leading-relaxed text-gray-600">
+                {property.description}
+              </p>
+            </div>
           </section>
         )}
 
         {/* Property details table */}
-        <section>
-          <h2 className="mb-3 text-lg font-semibold">Detalhes do imovel</h2>
-          <div className="rounded-lg border">
+        <section className="mt-8">
+          <h2 className="mb-3 font-[family-name:var(--font-display,var(--font-poppins))] text-lg font-bold text-[#0D3B3B]">
+            Detalhes do imovel
+          </h2>
+          <div className="overflow-hidden rounded-xl bg-white shadow-sm">
             <table className="w-full text-sm">
               <tbody>
                 {property.property_type && (
-                  <tr className="border-b last:border-b-0">
-                    <td className="px-4 py-3 font-medium text-muted-foreground">
+                  <tr className="border-b border-gray-50">
+                    <td className="px-5 py-3.5 font-medium text-gray-500">
                       Tipo
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-5 py-3.5 font-medium text-[#0D3B3B]">
                       {typeLabels[property.property_type] ??
                         property.property_type}
                     </td>
                   </tr>
                 )}
                 {property.condition && (
-                  <tr className="border-b last:border-b-0">
-                    <td className="px-4 py-3 font-medium text-muted-foreground">
+                  <tr className="border-b border-gray-50">
+                    <td className="px-5 py-3.5 font-medium text-gray-500">
                       Condicao
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-5 py-3.5 font-medium text-[#0D3B3B]">
                       {conditionLabels[property.condition] ??
                         property.condition}
                     </td>
                   </tr>
                 )}
                 {property.status && (
-                  <tr className="border-b last:border-b-0">
-                    <td className="px-4 py-3 font-medium text-muted-foreground">
+                  <tr className="border-b border-gray-50">
+                    <td className="px-5 py-3.5 font-medium text-gray-500">
                       Status
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-5 py-3.5">
                       <PropertyStatusBadge status={property.status} />
                     </td>
                   </tr>
                 )}
                 {fullAddress && (
-                  <tr className="border-b last:border-b-0">
-                    <td className="px-4 py-3 font-medium text-muted-foreground">
+                  <tr>
+                    <td className="px-5 py-3.5 font-medium text-gray-500">
                       Endereco
                     </td>
-                    <td className="px-4 py-3">{fullAddress}</td>
+                    <td className="px-5 py-3.5 font-medium text-[#0D3B3B]">{fullAddress}</td>
                   </tr>
                 )}
               </tbody>
@@ -183,12 +190,16 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
 
         {/* Map */}
         {hasCoordinates && (
-          <section>
-            <h2 className="mb-3 text-lg font-semibold">Localizacao</h2>
-            <PropertyMap
-              latitude={property.latitude!}
-              longitude={property.longitude!}
-            />
+          <section className="mt-8">
+            <h2 className="mb-3 font-[family-name:var(--font-display,var(--font-poppins))] text-lg font-bold text-[#0D3B3B]">
+              Localizacao
+            </h2>
+            <div className="overflow-hidden rounded-xl shadow-sm">
+              <PropertyMap
+                latitude={property.latitude!}
+                longitude={property.longitude!}
+              />
+            </div>
           </section>
         )}
       </div>

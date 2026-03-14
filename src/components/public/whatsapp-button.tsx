@@ -22,12 +22,11 @@ export function WhatsAppButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full px-4 py-3 text-white shadow-lg transition-shadow hover:shadow-xl sm:px-5"
-      style={{ backgroundColor: '#25D366' }}
+      className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-green-500 px-5 py-3.5 text-white shadow-xl transition-all hover:-translate-y-0.5 hover:bg-green-600 hover:shadow-2xl"
       aria-label="Falar no WhatsApp"
     >
       <MessageCircle className="h-6 w-6 fill-current" />
-      <span className="hidden text-sm font-semibold sm:inline">WhatsApp</span>
+      <span className="hidden sm:inline text-sm font-bold">WhatsApp</span>
     </a>
   )
 }

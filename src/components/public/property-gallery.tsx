@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Zoom, Navigation, Pagination } from 'swiper/modules'
-import { X, ImageIcon } from 'lucide-react'
+import { X, ImageIcon, Camera } from 'lucide-react'
 import { getImageUrl } from '@/lib/utils/image-url'
 
 import 'swiper/css'
@@ -20,13 +20,13 @@ interface GalleryImage {
 
 interface PropertyGalleryProps {
   images: GalleryImage[]
+  propertyTitle?: string
 }
 
-export function PropertyGallery({ images }: PropertyGalleryProps) {
+export function PropertyGallery({ images, propertyTitle }: PropertyGalleryProps) {
   const [fullscreen, setFullscreen] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  // Prevent body scroll when fullscreen is open
   useEffect(() => {
     if (fullscreen) {
       document.body.style.overflow = 'hidden'
@@ -40,10 +40,10 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
 
   if (images.length === 0) {
     return (
-      <div className="flex aspect-[16/9] w-full items-center justify-center bg-muted rounded-lg">
-        <div className="flex flex-col items-center gap-2 text-muted-foreground">
-          <ImageIcon className="h-12 w-12" />
-          <span className="text-sm">Sem fotos</span>
+      <div className="flex aspect-[16/9] w-full items-center justify-center bg-[#0D3B3B]/5">
+        <div className="flex flex-col items-center gap-2 text-[#0D3B3B]/30">
+          <ImageIcon className="h-16 w-16" />
+          <span className="text-sm font-medium">Sem fotos</span>
         </div>
       </div>
     )
@@ -53,34 +53,40 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
     <>
       {/* Inline preview */}
       <div
-        className="cursor-pointer"
+        className="group relative cursor-pointer"
         onClick={() => setFullscreen(true)}
       >
         <Swiper
           modules={[Pagination]}
           pagination={{ type: 'fraction' }}
           onSlideChange={(s) => setActiveIndex(s.activeIndex)}
-          className="aspect-[16/9] w-full rounded-lg overflow-hidden [&_.swiper-pagination]{bg-black/50;text-white;px-3;py-1;rounded-full;w-auto;left-auto;right-3;bottom-3;font-size:0.875rem}"
+          className="aspect-[16/9] w-full overflow-hidden [&_.swiper-pagination]{bg-black/60;text-white;px-3;py-1;rounded-full;w-auto;left-auto;right-4;bottom-4;font-size:0.875rem;font-weight:600}"
         >
           {images.map((img, index) => (
             <SwiperSlide key={img.id}>
               <img
                 src={getImageUrl(img.storage_path)}
-                alt=""
+                alt={index === 0 && propertyTitle ? propertyTitle : ''}
                 className="h-full w-full object-cover"
                 loading={index === 0 ? 'eager' : 'lazy'}
               />
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* "See all photos" overlay */}
+        <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-[#0D3B3B] opacity-100 shadow-lg backdrop-blur-sm transition-opacity sm:opacity-0 sm:group-hover:opacity-100">
+          <Camera className="h-3.5 w-3.5" />
+          Ver todas as fotos
+        </div>
       </div>
 
       {/* Fullscreen modal */}
       {fullscreen && (
-        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
           <button
             onClick={() => setFullscreen(false)}
-            className="absolute top-4 right-4 z-10 rounded-full bg-black/50 p-2 text-white hover:bg-black/70 transition-colors"
+            className="absolute right-4 top-4 z-10 cursor-pointer rounded-full bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20"
             aria-label="Fechar galeria"
           >
             <X className="h-6 w-6" />
@@ -92,7 +98,7 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
             navigation={true}
             pagination={{ type: 'fraction' }}
             initialSlide={activeIndex}
-            className="h-full w-full [&_.swiper-button-prev],[&_.swiper-button-next]{color:white;hidden;md:flex} [&_.swiper-pagination]{color:white;font-size:1rem}"
+            className="h-full w-full [&_.swiper-button-prev],[&_.swiper-button-next]{color:white;hidden;md:flex} [&_.swiper-pagination]{color:white;font-size:1.125rem;font-weight:600}"
           >
             {images.map((img) => (
               <SwiperSlide key={img.id} className="flex items-center justify-center">
