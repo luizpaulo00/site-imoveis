@@ -3,26 +3,10 @@ import type { Metadata } from 'next'
 import { getPropertyWithImages } from '@/lib/queries/property'
 import { getPublicSettings } from '@/lib/queries/settings'
 import { getOGImageUrl } from '@/lib/utils/image-url'
-import { formatCurrency } from '@/lib/utils/currency'
+import { formatOGDescription } from '@/lib/utils/og'
 import { PropertyDetail } from '@/components/public/property-detail'
 
 type Props = { params: Promise<{ id: string }> }
-
-function formatOGDescription(property: {
-  price: number | null
-  bedrooms: number | null
-  bathrooms: number | null
-  area: number | null
-  neighborhood: string | null
-}): string {
-  const parts: string[] = []
-  if (property.price) parts.push(formatCurrency(property.price))
-  if (property.bedrooms) parts.push(`${property.bedrooms} quartos`)
-  if (property.bathrooms) parts.push(`${property.bathrooms} banheiros`)
-  if (property.area) parts.push(`${property.area}m²`)
-  if (property.neighborhood) parts.push(property.neighborhood)
-  return parts.join(' | ')
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
@@ -36,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImageUrl = getOGImageUrl(property.id, property.updated_at)
 
   return {
-    title: property.title,
+    title: `${property.title} | Jander Imoveis`,
     description,
     openGraph: {
       title: property.title,

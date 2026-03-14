@@ -1,8 +1,11 @@
 'use client'
 
 import { Bed, Bath, Car, Ruler, MapPin } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import { PropertyGallery } from './property-gallery'
 import { PropertyMap } from './property-map'
+import { WhatsAppButton } from './whatsapp-button'
+import { ShareButton } from './share-button'
 import { PropertyStatusBadge } from '@/components/admin/property-status-badge'
 import { formatCurrency } from '@/lib/utils/currency'
 import type { PropertyWithImages } from '@/lib/queries/property'
@@ -35,6 +38,8 @@ const statusBannerConfig = {
 } as const
 
 export function PropertyDetail({ property, settings }: PropertyDetailProps) {
+  const pathname = usePathname()
+  const propertyUrl = `${process.env.NEXT_PUBLIC_SITE_URL || ''}${pathname}`
   const hasCoordinates =
     property.latitude != null && property.longitude != null
   const isSoldOrReserved =
@@ -72,11 +77,12 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
 
       {/* Content */}
       <div className="mt-6 space-y-6 px-4 pb-8 md:px-0">
-        {/* Title + Status */}
+        {/* Title + Status + Share */}
         <div className="flex items-start gap-3">
           <h1 className="flex-1 text-2xl font-bold leading-tight md:text-3xl">
             {property.title}
           </h1>
+          <ShareButton title={property.title} url={propertyUrl} />
           {isSoldOrReserved && (
             <PropertyStatusBadge status={property.status} />
           )}
@@ -186,6 +192,15 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
           </div>
         )}
       </div>
+
+      {/* Sticky WhatsApp FAB */}
+      {settings.whatsapp && (
+        <WhatsAppButton
+          phone={settings.whatsapp}
+          propertyTitle={property.title}
+          propertyUrl={propertyUrl}
+        />
+      )}
     </div>
   )
 }
