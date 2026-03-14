@@ -21,12 +21,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Property Management
 
-- [ ] **PROP-01**: Admin can create property with title, description, price (R$), type, bedrooms, bathrooms, area (m2), address, neighborhood
+- [x] **PROP-01**: Admin can create property with title, description, price (R$), type, bedrooms, bathrooms, area (m2), address, neighborhood
 - [ ] **PROP-02**: Admin can set property location on a map (latitude/longitude picker)
-- [ ] **PROP-03**: Admin can edit all property fields
-- [ ] **PROP-04**: Admin can delete a property (with confirmation)
-- [ ] **PROP-05**: Admin can set property status: disponivel, reservado, vendido
-- [ ] **PROP-06**: Admin can mark a property as featured (destacado na home)
+- [x] **PROP-03**: Admin can edit all property fields
+- [x] **PROP-04**: Admin can delete a property (with confirmation)
+- [x] **PROP-05**: Admin can set property status: disponivel, reservado, vendido
+- [x] **PROP-06**: Admin can mark a property as featured (destacado na home)
 - [ ] **PROP-07**: Admin sees property list with status, title, photo count, and actions
 
 ### Image Management
@@ -128,12 +128,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-04 | Phase 1 | Complete |
 | SETT-01 | Phase 1 | Complete |
 | SETT-02 | Phase 1 | Complete |
-| PROP-01 | Phase 2 | Pending |
+| PROP-01 | Phase 2 | Complete |
 | PROP-02 | Phase 2 | Pending |
-| PROP-03 | Phase 2 | Pending |
-| PROP-04 | Phase 2 | Pending |
-| PROP-05 | Phase 2 | Pending |
-| PROP-06 | Phase 2 | Pending |
+| PROP-03 | Phase 2 | Complete |
+| PROP-04 | Phase 2 | Complete |
+| PROP-05 | Phase 2 | Complete |
+| PROP-06 | Phase 2 | Complete |
 | PROP-07 | Phase 2 | Pending |
 | IMG-01 | Phase 3 | Pending |
 | IMG-02 | Phase 3 | Pending |
