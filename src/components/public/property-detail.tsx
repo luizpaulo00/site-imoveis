@@ -62,7 +62,7 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
     .join(', ')
 
   return (
-    <div className="mx-auto max-w-4xl">
+    <article className="mx-auto max-w-4xl">
       {/* Status banner for sold/reserved */}
       {isSoldOrReserved && (
         <div
@@ -122,16 +122,16 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
 
         {/* Description */}
         {property.description && (
-          <div>
+          <section>
             <h2 className="mb-2 text-lg font-semibold">Descricao</h2>
             <p className="whitespace-pre-wrap text-muted-foreground leading-relaxed">
               {property.description}
             </p>
-          </div>
+          </section>
         )}
 
         {/* Property details table */}
-        <div>
+        <section>
           <h2 className="mb-3 text-lg font-semibold">Detalhes do imovel</h2>
           <div className="rounded-lg border">
             <table className="w-full text-sm">
@@ -179,17 +179,17 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
               </tbody>
             </table>
           </div>
-        </div>
+        </section>
 
         {/* Map */}
         {hasCoordinates && (
-          <div>
+          <section>
             <h2 className="mb-3 text-lg font-semibold">Localizacao</h2>
             <PropertyMap
               latitude={property.latitude!}
               longitude={property.longitude!}
             />
-          </div>
+          </section>
         )}
       </div>
 
@@ -201,6 +201,6 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
           propertyUrl={propertyUrl}
         />
       )}
-    </div>
+    </article>
   )
 }

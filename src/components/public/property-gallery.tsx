@@ -62,13 +62,13 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
           onSlideChange={(s) => setActiveIndex(s.activeIndex)}
           className="aspect-[16/9] w-full rounded-lg overflow-hidden [&_.swiper-pagination]{bg-black/50;text-white;px-3;py-1;rounded-full;w-auto;left-auto;right-3;bottom-3;font-size:0.875rem}"
         >
-          {images.map((img) => (
+          {images.map((img, index) => (
             <SwiperSlide key={img.id}>
               <img
                 src={getImageUrl(img.storage_path)}
                 alt=""
                 className="h-full w-full object-cover"
-                loading="lazy"
+                loading={index === 0 ? 'eager' : 'lazy'}
               />
             </SwiperSlide>
           ))}
