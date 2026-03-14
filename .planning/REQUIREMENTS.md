@@ -70,10 +70,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### SEO & Performance
 
-- [ ] **PERF-01**: Mobile-first responsive design (optimized for 80%+ mobile traffic)
+- [x] **PERF-01**: Mobile-first responsive design (optimized for 80%+ mobile traffic)
 - [x] **PERF-02**: Skeleton loading states on all pages (no blank screens)
 - [x] **PERF-03**: Lazy-load images below the fold
-- [ ] **PERF-04**: LCP under 2.5s on 4G connection
+- [x] **PERF-04**: LCP under 2.5s on 4G connection
 - [x] **SEO-01**: JSON-LD structured data (RealEstateListing schema) on property pages
 - [x] **SEO-02**: Auto-generated sitemap.xml with all property pages
 - [x] **SEO-03**: Proper heading hierarchy and semantic HTML
@@ -162,10 +162,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | WAPP-03 | Phase 4 | Complete |
 | WAPP-04 | Phase 4 | Complete |
 | WAPP-05 | Phase 4 | Complete |
-| PERF-01 | Phase 5 | Pending |
+| PERF-01 | Phase 5 | Complete |
 | PERF-02 | Phase 5 | Complete |
 | PERF-03 | Phase 5 | Complete |
-| PERF-04 | Phase 5 | Pending |
+| PERF-04 | Phase 5 | Complete |
 | SEO-01 | Phase 5 | Complete |
 | SEO-02 | Phase 5 | Complete |
 | SEO-03 | Phase 5 | Complete |
