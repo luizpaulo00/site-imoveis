@@ -62,7 +62,7 @@ Plans:
   2. Photos are compressed client-side before upload (raw phone photos reduced to under 400KB)
   3. Admin can reorder photos via drag-and-drop, set one as cover, and delete individual photos with confirmation
   4. System automatically generates optimized variants (thumbnail, card, detail, OG at 1200x630) from each uploaded photo
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 03-01-PLAN.md — Install dependencies, validation schema, image server actions, and client-side compression hook
@@ -111,6 +111,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Foundation and Auth | 2/3 | In Progress|  |
 | 2. Property Management | 3/3 | Complete   | 2026-03-14 |
-| 3. Image Pipeline | 1/3 | In Progress|  |
+| 3. Image Pipeline | 2/3 | In Progress|  |
 | 4. Public Site and WhatsApp | 0/4 | Not started | - |
 | 5. Performance and SEO | 0/2 | Not started | - |
