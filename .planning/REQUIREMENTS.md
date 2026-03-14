@@ -52,13 +52,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Property Detail
 
-- [ ] **DETL-01**: Visitor sees full property info: all specs, description, address/neighborhood
-- [ ] **DETL-02**: Visitor can browse photo gallery with fullscreen swipe and pinch-to-zoom
-- [ ] **DETL-03**: Gallery shows photo count indicator (e.g., 3/12) in fullscreen
-- [ ] **DETL-04**: Visitor sees property location on a map (Leaflet + OpenStreetMap)
+- [x] **DETL-01**: Visitor sees full property info: all specs, description, address/neighborhood
+- [x] **DETL-02**: Visitor can browse photo gallery with fullscreen swipe and pinch-to-zoom
+- [x] **DETL-03**: Gallery shows photo count indicator (e.g., 3/12) in fullscreen
+- [x] **DETL-04**: Visitor sees property location on a map (Leaflet + OpenStreetMap)
 - [ ] **DETL-05**: Visitor sees sticky WhatsApp button on mobile with pre-filled message ("Oi! Tenho interesse no imovel: [titulo] - [link]")
 - [ ] **DETL-06**: Visitor can share property via Web Share API or copy link
-- [ ] **DETL-07**: Sold/reserved properties display status clearly but remain viewable
+- [x] **DETL-07**: Sold/reserved properties display status clearly but remain viewable
 
 ### WhatsApp & Open Graph
 
@@ -150,13 +150,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LIST-06 | Phase 4 | Complete |
 | LIST-07 | Phase 4 | Complete |
 | LIST-08 | Phase 4 | Complete |
-| DETL-01 | Phase 4 | Pending |
-| DETL-02 | Phase 4 | Pending |
-| DETL-03 | Phase 4 | Pending |
-| DETL-04 | Phase 4 | Pending |
+| DETL-01 | Phase 4 | Complete |
+| DETL-02 | Phase 4 | Complete |
+| DETL-03 | Phase 4 | Complete |
+| DETL-04 | Phase 4 | Complete |
 | DETL-05 | Phase 4 | Pending |
 | DETL-06 | Phase 4 | Pending |
-| DETL-07 | Phase 4 | Pending |
+| DETL-07 | Phase 4 | Complete |
 | WAPP-01 | Phase 4 | Pending |
 | WAPP-02 | Phase 4 | Pending |
 | WAPP-03 | Phase 4 | Pending |

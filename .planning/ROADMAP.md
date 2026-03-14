@@ -79,7 +79,7 @@ Plans:
   3. Visitor can tap a card to see the full detail page with all specs, description, fullscreen swipeable photo gallery with pinch-to-zoom and photo count indicator, and a map showing the property location
   4. Visitor sees a sticky WhatsApp button on mobile that opens WhatsApp with a pre-filled message including the property name and link
   5. Sharing a property link on WhatsApp shows a preview with the cover photo, title, and price (OG tags rendered server-side, OG image under 200KB, URL versioning for cache busting)
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 04-01-PLAN.md — Public layout with brand styling, data queries, and property listing page with cards, filters, and featured section
@@ -111,5 +111,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation and Auth | 2/3 | In Progress|  |
 | 2. Property Management | 3/3 | Complete   | 2026-03-14 |
 | 3. Image Pipeline | 2/3 | In Progress|  |
-| 4. Public Site and WhatsApp | 1/3 | In Progress|  |
+| 4. Public Site and WhatsApp | 2/3 | In Progress|  |
 | 5. Performance and SEO | 0/2 | Not started | - |
