@@ -75,6 +75,24 @@ Quando o cliente do corretor recebe um link de imóvel no WhatsApp, ele vê um p
 | Custo zero de infra | Corretor autônomo, projeto precisa ser sustentável sem custo recorrente | — Pending |
 | Único usuário admin | Apenas um corretor usa o sistema, sem necessidade de multi-tenant | — Pending |
 | WhatsApp como canal de contato | É como o corretor já trabalha, clientes já estão no WhatsApp | — Pending |
+| Identidade visual JV | Corretor tem branding profissional completo — usar cores, fontes e logo oficiais | — Active |
+
+## Brand Identity
+
+**Assets:** `JANDER VENANCIO - CORRETOR DE IMOVEIS - IDENTIDADE VISUAL/` (project root)
+
+**Colors:**
+- Primary/accent: `#FF6A15` (laranja)
+- Dark teal: `#0D3B3B` (logo mark, deep backgrounds)
+- Medium teal: `#2D6B6B` (secondary)
+- Off-white/cream: `#F0EBE3` (light backgrounds)
+- Dark: `#333333` (dark backgrounds, text)
+
+**Typography:**
+- **TT Firs Neue** — display/headlines (logo font)
+- **Poppins** — body/UI (Google Fonts)
+
+**Logo:** Monograma "JV" com silhueta de casa. Variantes: redondo, horizontal, vertical. SVGs em `SVG/`.
 
 ---
-*Last updated: 2026-03-11 after initialization*
+*Last updated: 2026-03-13 after brand identity integration*
