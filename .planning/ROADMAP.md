@@ -95,9 +95,10 @@ Plans:
   2. Images below the fold are lazy-loaded and the site achieves LCP under 2.5s on a simulated 4G connection
   3. Property pages include JSON-LD structured data using RealEstateListing schema
   4. A sitemap.xml is auto-generated with all property page URLs and the site uses semantic HTML with proper heading hierarchy
-**Plans:** 2 plans
+**Plans:** 3 plans
 
 Plans:
+- [ ] 05-00-PLAN.md — Wave 0 test stubs for all Phase 5 verification points
 - [ ] 05-01-PLAN.md — Skeleton loading states, image lazy-loading fixes for LCP, semantic HTML and heading hierarchy
 - [ ] 05-02-PLAN.md — JSON-LD structured data (RealEstateListing), dynamic sitemap.xml, and robots.txt
 
@@ -112,4 +113,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Property Management | 3/3 | Complete   | 2026-03-14 |
 | 3. Image Pipeline | 2/3 | In Progress|  |
 | 4. Public Site and WhatsApp | 3/3 | Complete   | 2026-03-14 |
-| 5. Performance and SEO | 0/2 | Not started | - |
+| 5. Performance and SEO | 0/3 | Not started | - |
