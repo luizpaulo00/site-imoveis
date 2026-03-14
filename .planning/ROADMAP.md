@@ -95,11 +95,11 @@ Plans:
   2. Images below the fold are lazy-loaded and the site achieves LCP under 2.5s on a simulated 4G connection
   3. Property pages include JSON-LD structured data using RealEstateListing schema
   4. A sitemap.xml is auto-generated with all property page URLs and the site uses semantic HTML with proper heading hierarchy
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md — Skeleton loading states, image lazy-loading fixes for LCP, semantic HTML and heading hierarchy
+- [ ] 05-02-PLAN.md — JSON-LD structured data (RealEstateListing), dynamic sitemap.xml, and robots.txt
 
 ## Progress
 
