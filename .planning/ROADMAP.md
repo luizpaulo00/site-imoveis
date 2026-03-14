@@ -62,12 +62,12 @@ Plans:
   2. Photos are compressed client-side before upload (raw phone photos reduced to under 400KB)
   3. Admin can reorder photos via drag-and-drop, set one as cover, and delete individual photos with confirmation
   4. System automatically generates optimized variants (thumbnail, card, detail, OG at 1200x630) from each uploaded photo
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
-- [ ] 03-03: TBD
+- [ ] 03-01-PLAN.md — Install dependencies, validation schema, image server actions, and client-side compression hook
+- [ ] 03-02-PLAN.md — ImageManager UI (dropzone, sortable grid, thumbnails, cover/delete actions) wired into property edit page
+- [ ] 03-03-PLAN.md — OG image generation (1200x630 client-side) and integration with cover photo flow
 
 ### Phase 4: Public Site and WhatsApp
 **Goal**: Visitors who receive a property link on WhatsApp see a beautiful preview, land on a fast mobile page with large photos, and contact the broker in one tap
