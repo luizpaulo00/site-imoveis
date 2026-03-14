@@ -184,3 +184,35 @@ export async function setCoverImage(
   revalidatePath('/admin/imoveis')
   return { success: true }
 }
+
+export async function uploadOGImage(
+  propertyId: string,
+  formData: FormData
+): Promise<{ url: string } | { error: string }> {
+  const file = formData.get('file') as File | null
+
+  if (!file) {
+    return { error: 'Nenhum arquivo enviado' }
+  }
+
+  const supabase = await createClient()
+
+  const storagePath = `${propertyId}/og-cover.jpg`
+
+  const { error: uploadError } = await supabase.storage
+    .from('property-images')
+    .upload(storagePath, file, {
+      cacheControl: '31536000',
+      upsert: true,
+    })
+
+  if (uploadError) {
+    return { error: 'Erro ao fazer upload da imagem OG' }
+  }
+
+  const {
+    data: { publicUrl },
+  } = supabase.storage.from('property-images').getPublicUrl(storagePath)
+
+  return { url: publicUrl }
+}
