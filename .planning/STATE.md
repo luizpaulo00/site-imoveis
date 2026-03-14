@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-03-PLAN.md
-last_updated: "2026-03-14T02:28:48.706Z"
-last_activity: 2026-03-14 -- Completed 03-03 OG image generation
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-03-14T03:19:54.974Z"
+last_activity: 2026-03-14 -- Completed 03-02 Image Manager UI
 progress:
   total_phases: 5
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 9
-  completed_plans: 8
-  percent: 89
+  completed_plans: 9
+  percent: 100
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-11)
 
 **Core value:** Quando o cliente recebe um link de imovel no WhatsApp, ele ve um preview bonito, abre num site rapido e mobile-first com fotos grandes, e fala com o corretor em um toque.
-**Current focus:** Phase 3 - Image Pipeline
+**Current focus:** Phase 4 - Public Site
 
 ## Current Position
 
-Phase: 3 of 5 (Image Pipeline)
-Plan: 3 of 3
-Status: In Progress
-Last activity: 2026-03-14 -- Completed 03-03 OG image generation
+Phase: 4 of 5 (Public Site)
+Plan: 1 of 3
+Status: Ready
+Last activity: 2026-03-14 -- Completed 03-02 Image Manager UI
 
-Progress: [█████████░] 89%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -56,6 +56,7 @@ Progress: [█████████░] 89%
 | Phase 02 P03 | 5min | 2 tasks | 3 files |
 | Phase 03 P01 | 3min | 2 tasks | 4 files |
 | Phase 03 P03 | 2min | 1 tasks | 2 files |
+| Phase 03 P02 | 5min | 3 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -89,6 +90,9 @@ Recent decisions affecting current work:
 - [03-01]: Integer-based positioning for reorder (max 15 photos, float positioning unnecessary)
 - [Phase 03-03]: Canvas API with cover-fit for OG generation, quality fallback 0.75->0.6 for WhatsApp 200KB limit
 - [Phase 03-03]: OG images as derived artifacts: no DB row, predictable path {propertyId}/og-cover.jpg with upsert
+- [03-02]: Component composition: ImageManager orchestrates Dropzone, Grid, and Thumbnail as independent units
+- [03-02]: Fire-and-forget OG generation after cover change to avoid blocking UI
+- [03-02]: Create page redirects to edit page so broker can immediately add photos
 
 ### Pending Todos
 
@@ -102,6 +106,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T02:28:48.702Z
-Stopped at: Completed 03-03-PLAN.md
+Last session: 2026-03-14T03:19:54.974Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None

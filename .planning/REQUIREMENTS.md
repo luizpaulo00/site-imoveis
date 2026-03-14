@@ -31,11 +31,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Image Management
 
-- [ ] **IMG-01**: Admin can upload multiple photos (up to 15 per property) via drag-and-drop
+- [x] **IMG-01**: Admin can upload multiple photos (up to 15 per property) via drag-and-drop
 - [x] **IMG-02**: Photos are automatically compressed client-side before upload (target <400KB)
-- [ ] **IMG-03**: Admin can reorder photos via drag-and-drop
-- [ ] **IMG-04**: Admin can set a photo as cover (used in cards and OG preview)
-- [ ] **IMG-05**: Admin can delete individual photos with confirmation
+- [x] **IMG-03**: Admin can reorder photos via drag-and-drop
+- [x] **IMG-04**: Admin can set a photo as cover (used in cards and OG preview)
+- [x] **IMG-05**: Admin can delete individual photos with confirmation
 - [x] **IMG-06**: Upload shows progress indicator per image
 - [x] **IMG-07**: System generates optimized variants (thumbnail, card, detail, OG) from uploaded photos
 
@@ -135,11 +135,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PROP-05 | Phase 2 | Complete |
 | PROP-06 | Phase 2 | Complete |
 | PROP-07 | Phase 2 | Complete |
-| IMG-01 | Phase 3 | Pending |
+| IMG-01 | Phase 3 | Complete |
 | IMG-02 | Phase 3 | Complete |
-| IMG-03 | Phase 3 | Pending |
-| IMG-04 | Phase 3 | Pending |
-| IMG-05 | Phase 3 | Pending |
+| IMG-03 | Phase 3 | Complete |
+| IMG-04 | Phase 3 | Complete |
+| IMG-05 | Phase 3 | Complete |
 | IMG-06 | Phase 3 | Complete |
 | IMG-07 | Phase 3 | Complete |
 | LIST-01 | Phase 4 | Pending |
