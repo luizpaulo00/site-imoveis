@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 03-02-PLAN.md
-last_updated: "2026-03-14T03:19:54.974Z"
-last_activity: 2026-03-14 -- Completed 03-02 Image Manager UI
+status: Ready
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-14T13:51:19.385Z"
+last_activity: 2026-03-14 -- Completed 04-01 Public Listing Page
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 9
-  completed_plans: 9
-  percent: 100
+  total_plans: 12
+  completed_plans: 10
+  percent: 83
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-11)
 ## Current Position
 
 Phase: 4 of 5 (Public Site)
-Plan: 1 of 3
+Plan: 2 of 3
 Status: Ready
-Last activity: 2026-03-14 -- Completed 03-02 Image Manager UI
+Last activity: 2026-03-14 -- Completed 04-01 Public Listing Page
 
-Progress: [██████████] 100%
+Progress: [████████░░] 83%
 
 ## Performance Metrics
 
@@ -57,6 +57,7 @@ Progress: [██████████] 100%
 | Phase 03 P01 | 3min | 2 tasks | 4 files |
 | Phase 03 P03 | 2min | 1 tasks | 2 files |
 | Phase 03 P02 | 5min | 3 tasks | 7 files |
+| Phase 04 P01 | 5min | 3 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -93,6 +94,9 @@ Recent decisions affecting current work:
 - [03-02]: Component composition: ImageManager orchestrates Dropzone, Grid, and Thumbnail as independent units
 - [03-02]: Fire-and-forget OG generation after cover change to avoid blocking UI
 - [03-02]: Create page redirects to edit page so broker can immediately add photos
+- [Phase 04]: Used img tag for property cover photos (Supabase external URLs)
+- [Phase 04]: Client-side filtering with useMemo for instant results without server round-trips
+- [Phase 04]: Public route group pattern: (public) layout fetches settings, components in src/components/public/
 
 ### Pending Todos
 
@@ -106,6 +110,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T03:19:54.974Z
-Stopped at: Completed 03-02-PLAN.md
+Last session: 2026-03-14T13:51:19.382Z
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None

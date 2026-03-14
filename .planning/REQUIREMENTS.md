@@ -41,14 +41,14 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Public Listing
 
-- [ ] **LIST-01**: Visitor sees property cards with cover photo, price (R$ formatted), bedrooms, bathrooms, area, neighborhood
-- [ ] **LIST-02**: Visitor can filter by property type (casa, apartamento, etc.)
-- [ ] **LIST-03**: Visitor can filter by price range
-- [ ] **LIST-04**: Visitor can filter by number of bedrooms
-- [ ] **LIST-05**: Filters are instant (client-side) with result count displayed
-- [ ] **LIST-06**: Featured properties appear in a highlighted section at the top of the listing
-- [ ] **LIST-07**: Property cards show status badge (disponivel/reservado/vendido)
-- [ ] **LIST-08**: Entire card is tappable to navigate to property detail
+- [x] **LIST-01**: Visitor sees property cards with cover photo, price (R$ formatted), bedrooms, bathrooms, area, neighborhood
+- [x] **LIST-02**: Visitor can filter by property type (casa, apartamento, etc.)
+- [x] **LIST-03**: Visitor can filter by price range
+- [x] **LIST-04**: Visitor can filter by number of bedrooms
+- [x] **LIST-05**: Filters are instant (client-side) with result count displayed
+- [x] **LIST-06**: Featured properties appear in a highlighted section at the top of the listing
+- [x] **LIST-07**: Property cards show status badge (disponivel/reservado/vendido)
+- [x] **LIST-08**: Entire card is tappable to navigate to property detail
 
 ### Property Detail
 
@@ -142,14 +142,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | IMG-05 | Phase 3 | Complete |
 | IMG-06 | Phase 3 | Complete |
 | IMG-07 | Phase 3 | Complete |
-| LIST-01 | Phase 4 | Pending |
-| LIST-02 | Phase 4 | Pending |
-| LIST-03 | Phase 4 | Pending |
-| LIST-04 | Phase 4 | Pending |
-| LIST-05 | Phase 4 | Pending |
-| LIST-06 | Phase 4 | Pending |
-| LIST-07 | Phase 4 | Pending |
-| LIST-08 | Phase 4 | Pending |
+| LIST-01 | Phase 4 | Complete |
+| LIST-02 | Phase 4 | Complete |
+| LIST-03 | Phase 4 | Complete |
+| LIST-04 | Phase 4 | Complete |
+| LIST-05 | Phase 4 | Complete |
+| LIST-06 | Phase 4 | Complete |
+| LIST-07 | Phase 4 | Complete |
+| LIST-08 | Phase 4 | Complete |
 | DETL-01 | Phase 4 | Pending |
 | DETL-02 | Phase 4 | Pending |
 | DETL-03 | Phase 4 | Pending |
