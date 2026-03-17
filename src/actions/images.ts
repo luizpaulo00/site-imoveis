@@ -2,18 +2,41 @@
 
 import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
+import { uuidSchema } from '@/lib/validations/uuid'
+import { imageFileSchema, MAX_IMAGES_PER_PROPERTY } from '@/lib/validations/image'
 
 export async function uploadImage(
   propertyId: string,
   formData: FormData
 ): Promise<{ success: true; image: Record<string, unknown> } | { error: string }> {
+  const idValidation = uuidSchema.safeParse(propertyId)
+  if (!idValidation.success) return { error: 'ID invalido' }
+
   const file = formData.get('file') as File | null
 
   if (!file) {
     return { error: 'Nenhum arquivo enviado' }
   }
 
+  // Validate file type and size
+  const fileValidation = imageFileSchema.safeParse({ type: file.type, size: file.size })
+  if (!fileValidation.success) {
+    return { error: fileValidation.error.issues[0]?.message ?? 'Arquivo invalido' }
+  }
+
   const supabase = await createClient()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Nao autorizado' }
+
+  // Check image count limit
+  const { count } = await supabase
+    .from('property_images')
+    .select('*', { count: 'exact', head: true })
+    .eq('property_id', propertyId)
+
+  if ((count ?? 0) >= MAX_IMAGES_PER_PROPERTY) {
+    return { error: `Maximo de ${MAX_IMAGES_PER_PROPERTY} imagens por imovel` }
+  }
 
   // Generate unique filename
   const fileId = crypto.randomUUID()
@@ -25,13 +48,14 @@ export async function uploadImage(
     .upload(storagePath, file, {
       cacheControl: '3600',
       upsert: false,
+      contentType: file.type,
     })
 
   if (uploadError) {
     return { error: 'Erro ao fazer upload da imagem' }
   }
 
-  // Get next position
+  // Check if first image
   const { data: existingImages } = await supabase
     .from('property_images')
     .select('id')
@@ -39,14 +63,7 @@ export async function uploadImage(
     .order('position', { ascending: false })
     .limit(1)
 
-  const nextPosition = existingImages && existingImages.length > 0 ? 1 : 0
   const isFirstImage = !existingImages || existingImages.length === 0
-
-  // Get correct next position by counting
-  const { count } = await supabase
-    .from('property_images')
-    .select('*', { count: 'exact', head: true })
-    .eq('property_id', propertyId)
 
   const position = count ?? 0
 
@@ -75,7 +92,12 @@ export async function uploadImage(
 export async function deleteImage(
   imageId: string
 ): Promise<{ success: true } | { error: string }> {
+  const idValidation = uuidSchema.safeParse(imageId)
+  if (!idValidation.success) return { error: 'ID invalido' }
+
   const supabase = await createClient()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Nao autorizado' }
 
   // Fetch image record
   const { data: image, error: fetchError } = await supabase
@@ -132,7 +154,22 @@ export async function reorderImages(
   propertyId: string,
   imageIds: string[]
 ): Promise<{ success: true } | { error: string }> {
+  const idValidation = uuidSchema.safeParse(propertyId)
+  if (!idValidation.success) return { error: 'ID invalido' }
+
+  // Limit array size and validate each UUID
+  if (imageIds.length > MAX_IMAGES_PER_PROPERTY) {
+    return { error: 'Lista de imagens excede o limite' }
+  }
+  for (const id of imageIds) {
+    if (!uuidSchema.safeParse(id).success) {
+      return { error: 'ID de imagem invalido' }
+    }
+  }
+
   const supabase = await createClient()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Nao autorizado' }
 
   // Update each image position to its array index
   const updates = imageIds.map((id, index) =>
@@ -158,7 +195,13 @@ export async function setCoverImage(
   propertyId: string,
   imageId: string
 ): Promise<{ success: true } | { error: string }> {
+  const propValidation = uuidSchema.safeParse(propertyId)
+  const imgValidation = uuidSchema.safeParse(imageId)
+  if (!propValidation.success || !imgValidation.success) return { error: 'ID invalido' }
+
   const supabase = await createClient()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Nao autorizado' }
 
   // Unset all covers for this property
   const { error: unsetError } = await supabase
@@ -189,13 +232,24 @@ export async function uploadOGImage(
   propertyId: string,
   formData: FormData
 ): Promise<{ url: string } | { error: string }> {
+  const idValidation = uuidSchema.safeParse(propertyId)
+  if (!idValidation.success) return { error: 'ID invalido' }
+
   const file = formData.get('file') as File | null
 
   if (!file) {
     return { error: 'Nenhum arquivo enviado' }
   }
 
+  // Validate file type and size
+  const fileValidation = imageFileSchema.safeParse({ type: file.type, size: file.size })
+  if (!fileValidation.success) {
+    return { error: fileValidation.error.issues[0]?.message ?? 'Arquivo invalido' }
+  }
+
   const supabase = await createClient()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Nao autorizado' }
 
   const storagePath = `${propertyId}/og-cover.jpg`
 
@@ -204,6 +258,7 @@ export async function uploadOGImage(
     .upload(storagePath, file, {
       cacheControl: '31536000',
       upsert: true,
+      contentType: file.type,
     })
 
   if (uploadError) {

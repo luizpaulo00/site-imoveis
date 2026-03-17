@@ -58,13 +58,13 @@ export function PropertyListing({ properties }: PropertyListingProps) {
       />
 
       {filtered.length === 0 && (
-        <div className="rounded-2xl bg-white py-20 text-center shadow-sm">
-          <SearchX className="mx-auto h-12 w-12 text-gray-300" />
-          <p className="mt-4 text-lg font-medium text-gray-400">
-            Nenhum imovel encontrado com esses filtros
+        <div className="rounded-none border border-foreground/10 bg-background/5 py-20 text-center transition-all">
+          <SearchX className="mx-auto h-12 w-12 text-primary-foreground/50" />
+          <p className="mt-4 text-lg font-serif text-foreground/70">
+            Nenhuma propriedade encontrada com estes critérios.
           </p>
-          <p className="mt-1 text-sm text-gray-400">
-            Tente ajustar seus criterios de busca
+          <p className="mt-1 text-sm font-light text-foreground/50">
+            Ajuste sua busca ou entre em contato para atendimento exclusivo.
           </p>
           <button
             onClick={() =>
@@ -75,25 +75,25 @@ export function PropertyListing({ properties }: PropertyListingProps) {
                 bedrooms: null,
               })
             }
-            className="mt-5 cursor-pointer rounded-full bg-[#FF6A15] px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#e55d10] hover:shadow-lg"
+            className="mt-6 cursor-pointer border border-primary-foreground/50 bg-transparent px-8 py-3 text-xs uppercase tracking-widest font-bold text-foreground transition-all hover:bg-primary-foreground hover:text-background"
           >
-            Limpar filtros
+            Limpar Filtros
           </button>
         </div>
       )}
 
       {/* Featured section */}
       {featured.length > 0 && (
-        <section className="mb-10">
-          <h2 className="mb-5 flex items-center gap-2 font-[family-name:var(--font-display,var(--font-poppins))] text-xl font-bold text-[#0D3B3B]">
-            <Star className="h-5 w-5 fill-[#FF6A15] text-[#FF6A15]" />
-            Destaques
+        <section className="mb-16">
+          <h2 className="mb-8 flex items-center gap-3 font-serif text-2xl uppercase tracking-widest font-bold text-foreground border-b border-foreground/10 pb-4">
+            <Star className="h-5 w-5 fill-primary-foreground text-primary-foreground" />
+            Acervo em Destaque
           </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((property, i) => (
               <div
                 key={property.id}
-                className="animate-card-in overflow-hidden rounded-2xl ring-2 ring-[#FF6A15]/40"
+                className="animate-card-in"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <PropertyCard property={property} />
@@ -106,10 +106,10 @@ export function PropertyListing({ properties }: PropertyListingProps) {
       {/* All properties section */}
       {regular.length > 0 && (
         <section>
-          <h2 className="mb-5 font-[family-name:var(--font-display,var(--font-poppins))] text-xl font-bold text-[#0D3B3B]">
-            Todos os Imoveis
+          <h2 className="mb-8 font-serif text-xl uppercase tracking-widest font-bold text-foreground border-b border-foreground/10 pb-4">
+            Explorar Portfólio
           </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {regular.map((property, i) => (
               <div
                 key={property.id}

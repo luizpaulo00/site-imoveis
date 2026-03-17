@@ -39,7 +39,7 @@ export function PropertyFilters({
   )
 
   return (
-    <div className="mb-8 rounded-2xl bg-white p-5 shadow-sm sm:p-6">
+    <div className="animate-slide-down mb-8 rounded-2xl bg-white p-5 shadow-sm sm:p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:gap-8">
         {/* Type filter */}
         <div className="flex-1">
@@ -54,9 +54,9 @@ export function PropertyFilters({
                 <button
                   key={t}
                   onClick={() => onFilterChange({ ...filters, type: value })}
-                  className={`cursor-pointer rounded-full px-4 py-2.5 min-h-[44px] text-sm font-medium transition-all ${
+                  className={`cursor-pointer rounded-full px-4 py-2.5 min-h-[44px] text-sm font-medium transition-all duration-200 active:scale-95 ${
                     isActive
-                      ? 'bg-[#0D3B3B] text-white shadow-md'
+                      ? 'bg-[#0D3B3B] text-white shadow-md scale-[1.02]'
                       : 'bg-[#F8F5F0] text-[#0D3B3B] hover:bg-[#0D3B3B]/10'
                   }`}
                 >
@@ -85,9 +85,9 @@ export function PropertyFilters({
                       priceMax: range.max,
                     })
                   }
-                  className={`cursor-pointer rounded-full px-4 py-2.5 min-h-[44px] text-sm font-medium transition-all ${
+                  className={`cursor-pointer rounded-full px-4 py-2.5 min-h-[44px] text-sm font-medium transition-all duration-200 active:scale-95 ${
                     isActive
-                      ? 'bg-[#0D3B3B] text-white shadow-md'
+                      ? 'bg-[#0D3B3B] text-white shadow-md scale-[1.02]'
                       : 'bg-[#F8F5F0] text-[#0D3B3B] hover:bg-[#0D3B3B]/10'
                   }`}
                 >
@@ -112,9 +112,9 @@ export function PropertyFilters({
                   onClick={() =>
                     onFilterChange({ ...filters, bedrooms: opt.value })
                   }
-                  className={`cursor-pointer rounded-full px-4 py-2.5 min-h-[44px] min-w-[44px] text-sm font-medium transition-all ${
+                  className={`cursor-pointer rounded-full px-4 py-2.5 min-h-[44px] min-w-[44px] text-sm font-medium transition-all duration-200 active:scale-95 ${
                     isActive
-                      ? 'bg-[#0D3B3B] text-white shadow-md'
+                      ? 'bg-[#0D3B3B] text-white shadow-md scale-[1.02]'
                       : 'bg-[#F8F5F0] text-[#0D3B3B] hover:bg-[#0D3B3B]/10'
                   }`}
                 >
@@ -127,7 +127,7 @@ export function PropertyFilters({
       </div>
 
       {/* Result count */}
-      <div className="mt-4 border-t border-gray-100 pt-3">
+      <div className="mt-4 border-t border-gray-100 pt-3 transition-all duration-300">
         <p className="text-sm text-gray-500">
           <span className="font-bold text-[#0D3B3B]">{resultCount}</span>{' '}
           {resultCount === 1 ? 'imovel encontrado' : 'imoveis encontrados'}

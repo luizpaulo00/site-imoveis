@@ -14,69 +14,68 @@ export default async function HomePage() {
   ])
 
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0D3B3B] px-4 pb-24 pt-16 sm:px-6 sm:pb-28 sm:pt-20 lg:px-8 lg:pb-32 lg:pt-24">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-[#FF6A15]/10 blur-3xl" />
-          <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-[#FF6A15]/5 blur-3xl" />
-          <div className="absolute right-1/4 top-1/3 h-2 w-2 rounded-full bg-[#FF6A15]/40" />
-          <div className="absolute left-1/3 top-1/4 h-1.5 w-1.5 rounded-full bg-white/20" />
-          <div className="absolute bottom-1/3 right-1/3 h-1 w-1 rounded-full bg-[#FF6A15]/30" />
+    <div className="bg-background text-foreground scroll-smooth">
+      {/* Accessible Premium Hero */}
+      <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden bg-gradient-to-br from-[#064e3b] via-[#0a5c47] to-[#0D3B3B] px-4 sm:px-6 lg:px-8">
+
+        {/* Animated gradient overlay */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-30"
+          style={{
+            background: 'radial-gradient(ellipse at 20% 50%, rgba(255,106,21,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(6,78,59,0.3) 0%, transparent 50%)',
+            animation: 'gradient-shift 8s ease-in-out infinite alternate',
+          }}
+        />
+
+        {/* Subtle Decorative Light */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-[50vw] h-[50vw] md:w-[40vw] md:h-[40vw] bg-secondary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 animate-float-slow" />
+          <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] md:w-[30vw] md:h-[30vw] bg-background/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 animate-float-medium" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70 backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-              {settings.brokerName || 'Jander Venancio'} — CRECI ativo
-            </div>
-            <h1 className="font-[family-name:var(--font-display,var(--font-poppins))] text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-              Encontre o imovel{' '}
-              <span className="relative inline-block text-[#FF6A15]">
-                ideal
-                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 120 8" fill="none">
-                  <path d="M2 6C30 2 90 2 118 6" stroke="#FF6A15" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
-                </svg>
-              </span>{' '}
-              para voce
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/60 sm:text-xl">
-              Casas e apartamentos selecionados com atendimento personalizado. Seu novo lar esta aqui.
-            </p>
+        <div className="relative z-10 mx-auto max-w-7xl w-full flex flex-col items-center text-center">
+          
+          <div className="mb-6 inline-flex items-center gap-2 border border-background/20 bg-background/5 px-5 py-2 text-xs uppercase tracking-widest text-background backdrop-blur-sm animate-fade-in-down duration-500 rounded-sm">
+            <span className="h-2 w-2 rounded-full bg-secondary animate-pulse" />
+            {settings.brokerName || 'Jander Venancio'} — Corretor de Imóveis
+          </div>
+          
+          <h1 className="font-serif text-5xl font-black leading-[0.9] tracking-tighter text-background sm:text-7xl md:text-8xl lg:text-9xl animate-fade-in-up duration-700">
+            SEU PRÓXIMO<br/>
+            <span className="text-secondary italic font-light">CAPÍTULO</span> COMEÇA AQUI.
+          </h1>
+          
+          <p className="mt-8 max-w-2xl text-lg font-light leading-relaxed text-background/90 sm:text-xl md:text-2xl animate-fade-in-up duration-700 delay-200">
+            Imóveis selecionados com padrão de excelência em Formosa, Goiás.
+          </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row animate-fade-in-up duration-700 delay-300">
+            <a
+              href="#imoveis"
+              className="group inline-flex items-center justify-center gap-3 bg-secondary px-8 py-4 text-sm tracking-widest uppercase font-bold text-white transition-all hover:bg-background hover:text-secondary hover:scale-105 rounded-sm"
+            >
+              Explorar Imóveis
+              <ChevronDown className="h-4 w-4 transition-transform group-hover:translate-y-1" />
+            </a>
+            
+            {settings.whatsapp && settings.whatsapp.replace(/\D/g, '').length > 0 && (
               <a
-                href="#imoveis"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#FF6A15] px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-[#FF6A15]/25 transition-all hover:-translate-y-0.5 hover:bg-[#e55d10] hover:shadow-xl hover:shadow-[#FF6A15]/30"
+                href={formatWhatsAppUrl(settings.whatsapp, 'Olá! Estou buscando um imóvel em Formosa e gostaria da sua orientação.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center border border-background/30 px-8 py-4 text-sm tracking-widest uppercase text-background transition-colors hover:border-secondary hover:text-secondary rounded-sm font-semibold"
               >
-                <Search className="h-4 w-4" />
-                Ver imoveis
+                Falar com Jander
               </a>
-              {settings.whatsapp && settings.whatsapp.replace(/\D/g, '').length > 0 && (
-                <a
-                  href={formatWhatsAppUrl(settings.whatsapp, 'Oi! Gostaria de saber mais sobre os imoveis disponiveis.')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5"
-                >
-                  Fale comigo
-                </a>
-              )}
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-6 w-6 text-white/30" />
-        </div>
-
-        {/* Curved bottom */}
-        <div className="absolute inset-x-0 -bottom-1">
-          <svg viewBox="0 0 1440 80" fill="none" className="w-full">
-            <path d="M0 80V0C360 60 720 80 1080 60C1260 50 1380 30 1440 0V80H0Z" fill="#F8F5F0" />
+        {/* Scroll indicator - bottom-24 on mobile to clear bottom nav */}
+        <div className="absolute bottom-24 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow">
+          <span className="text-xs uppercase tracking-widest text-white/40">Explore</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/40">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
           </svg>
         </div>
       </section>
@@ -85,15 +84,22 @@ export default async function HomePage() {
       <StatsSection />
 
       {/* Properties */}
-      <section id="imoveis" className="scroll-mt-20 mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="mb-8 text-center">
-          <h2 className="font-[family-name:var(--font-display,var(--font-poppins))] text-2xl font-bold text-[#0D3B3B] sm:text-3xl">
-            Imoveis disponiveis
-          </h2>
-          <p className="mt-2 text-gray-500">
-            <strong className="text-[#0D3B3B]">{properties.length}</strong>{' '}
-            {properties.length === 1 ? 'opcao selecionada' : 'opcoes selecionadas'} para voce
-          </p>
+      <section id="imoveis" className="scroll-mt-0 mx-auto w-full px-4 py-24 sm:px-6 lg:px-8 bg-background">
+        <div className="mb-16 text-center lg:text-left flex flex-col lg:flex-row items-end justify-between border-b border-foreground/10 pb-8">
+          <div>
+            <h2 className="font-serif text-3xl font-bold uppercase tracking-widest text-foreground sm:text-4xl md:text-5xl">
+              Imóveis Selecionados
+            </h2>
+            <p className="mt-4 text-foreground/70 max-w-lg font-light text-lg">
+              Cada propriedade é escolhida por critérios de qualidade, localização e potencial.
+            </p>
+          </div>
+          <div className="mt-6 lg:mt-0 text-right">
+            <span className="text-4xl font-serif text-primary">{properties.length}</span>
+            <span className="block text-sm uppercase tracking-widest text-foreground/50 mt-1">
+              Disponíveis
+            </span>
+          </div>
         </div>
 
         <PropertyListing properties={properties} />

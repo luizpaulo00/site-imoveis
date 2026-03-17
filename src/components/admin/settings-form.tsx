@@ -64,9 +64,9 @@ export function SettingsForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-4 max-w-2xl">
-      <Card>
-        <CardHeader>
-          <CardTitle>Contato</CardTitle>
+      <Card className="overflow-hidden border-border/50 shadow-sm">
+        <CardHeader className="bg-muted/30 border-b border-border/50 pb-4">
+          <CardTitle className="text-lg font-medium">Contato</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
@@ -77,6 +77,7 @@ export function SettingsForm() {
               maxLength={15}
               value={whatsappValue}
               onChange={handleWhatsAppChange}
+              className="bg-background transition-colors focus-visible:ring-primary/50"
             />
             {errors.whatsapp && (
               <p className="text-sm text-red-500">{errors.whatsapp.message}</p>
@@ -85,9 +86,9 @@ export function SettingsForm() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Site</CardTitle>
+      <Card className="overflow-hidden border-border/50 shadow-sm">
+        <CardHeader className="bg-muted/30 border-b border-border/50 pb-4">
+          <CardTitle className="text-lg font-medium">Site</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
@@ -95,6 +96,7 @@ export function SettingsForm() {
             <Input
               id="site_name"
               placeholder="Jander Imoveis"
+              className="bg-background transition-colors focus-visible:ring-primary/50"
               {...register('site_name')}
             />
             {errors.site_name && (
@@ -106,6 +108,7 @@ export function SettingsForm() {
             <Input
               id="broker_name"
               placeholder="Jander Silva"
+              className="bg-background transition-colors focus-visible:ring-primary/50"
               {...register('broker_name')}
             />
             {errors.broker_name && (

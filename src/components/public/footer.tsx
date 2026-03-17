@@ -19,7 +19,7 @@ export function PublicFooter({ brokerName, whatsapp }: PublicFooterProps) {
     : null
 
   return (
-    <footer className="bg-[#0D3B3B]">
+    <footer className="bg-[#0D3B3B] pb-20 sm:pb-0">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
@@ -59,6 +59,11 @@ export function PublicFooter({ brokerName, whatsapp }: PublicFooterProps) {
                   </a>
                 </li>
               )}
+              <li>
+                <Link href="/login" className="text-sm text-white/60 transition-colors hover:text-[#FF6A15]">
+                  Area do corretor
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -83,7 +88,7 @@ export function PublicFooter({ brokerName, whatsapp }: PublicFooterProps) {
               )}
               <li className="flex items-center gap-2 text-sm text-white/60">
                 <MapPin className="h-4 w-4 shrink-0" />
-                Goiania, GO
+                Formosa, GO
               </li>
             </ul>
 

@@ -31,7 +31,7 @@ export default async function PublicLayout({
       className={`${poppins.variable} ${displayFont.variable} min-h-screen bg-[#F8F5F0] font-[family-name:var(--font-poppins)]`}
     >
       <PublicHeader whatsapp={settings.whatsapp} />
-      <main>
+      <main className="animate-page-in">
         {children}
       </main>
       <PublicFooter

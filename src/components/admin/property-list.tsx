@@ -11,6 +11,7 @@ import { deleteProperty } from '@/actions/properties'
 import { formatCurrency } from '@/lib/utils/currency'
 
 import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
   Table,
@@ -100,19 +101,30 @@ export function PropertyList({ properties }: PropertyListProps) {
       </Tabs>
 
       {filtered.length === 0 ? (
-        <div className="flex flex-col items-center justify-center gap-4 py-16">
-          <p className="text-muted-foreground">
-            {activeTab === 'todos'
-              ? 'Nenhum imovel cadastrado.'
-              : `Nenhum imovel com status ${activeTab}.`}
-          </p>
+        <Card className="flex flex-col items-center justify-center gap-6 py-24 shadow-sm border-dashed">
+          <div className="flex size-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <Plus className="size-6" />
+          </div>
+          <div className="text-center">
+            <h3 className="text-lg font-medium text-foreground">
+              {activeTab === 'todos'
+                ? 'Nenhum imovel cadastrado'
+                : `Sem resultado para "${activeTab}"`}
+            </h3>
+            <p className="mt-2 max-w-sm text-sm text-muted-foreground">
+              Comece adicionando seu primeiro imovel ao sistema para gerencia-lo em seu painel.
+            </p>
+          </div>
           {activeTab === 'todos' && (
-            <Button render={<Link href="/admin/imoveis/novo" />}>
-              <Plus className="size-4" />
-              Novo Imovel
+            <Button
+              render={<Link href="/admin/imoveis/novo" />}
+              className="mt-2 px-8 font-medium"
+            >
+              <Plus className="mr-2 size-4" />
+              Adicionar Imovel
             </Button>
           )}
-        </div>
+        </Card>
       ) : (
         <Table>
           <TableHeader>
@@ -127,7 +139,7 @@ export function PropertyList({ properties }: PropertyListProps) {
           </TableHeader>
           <TableBody>
             {filtered.map((property) => (
-              <TableRow key={property.id}>
+              <TableRow key={property.id} className="group transition-colors hover:bg-muted/50 cursor-pointer">
                 <TableCell className="font-medium">
                   {property.title}
                 </TableCell>
@@ -142,14 +154,13 @@ export function PropertyList({ properties }: PropertyListProps) {
                   {property.image_count}
                 </TableCell>
                 <TableCell className="text-right">
-                  <div className="flex items-center justify-end gap-1">
+                  <div className="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
                     <Button
                       variant="ghost"
                       size="icon"
+                      className="hover:bg-primary/10 hover:text-primary transition-colors"
                       render={
-                        <Link
-                          href={`/admin/imoveis/${property.id}/editar`}
-                        />
+                        <Link href={`/admin/imoveis/${property.id}/editar`} />
                       }
                     >
                       <Pencil className="size-4" />
@@ -158,9 +169,10 @@ export function PropertyList({ properties }: PropertyListProps) {
                     <Button
                       variant="ghost"
                       size="icon"
+                      className="hover:bg-destructive/10 hover:text-destructive transition-colors"
                       onClick={() => setDeletingProperty(property)}
                     >
-                      <Trash2 className="size-4 text-destructive" />
+                      <Trash2 className="size-4" />
                       <span className="sr-only">Excluir</span>
                     </Button>
                   </div>

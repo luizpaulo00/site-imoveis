@@ -31,16 +31,40 @@ export async function saveSettings(
   }
 
   const supabase = await createClient()
-  const { error } = await supabase.from('site_settings').upsert({
-    id: undefined, // Let the existing row match or create new
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Nao autorizado' }
+
+  // Select existing row, then update or insert
+  const { data: existing } = await supabase
+    .from('site_settings')
+    .select('id')
+    .limit(1)
+    .single()
+
+  const settingsPayload = {
     whatsapp: parsed.data.whatsapp,
     site_name: parsed.data.site_name,
     broker_name: parsed.data.broker_name,
     updated_at: new Date().toISOString(),
-  })
+  }
 
-  if (error) {
-    return { error: 'Erro ao salvar configuracoes' }
+  if (existing) {
+    const { error } = await supabase
+      .from('site_settings')
+      .update(settingsPayload)
+      .eq('id', existing.id)
+
+    if (error) {
+      return { error: 'Erro ao salvar configuracoes' }
+    }
+  } else {
+    const { error } = await supabase
+      .from('site_settings')
+      .insert(settingsPayload)
+
+    if (error) {
+      return { error: 'Erro ao salvar configuracoes' }
+    }
   }
 
   return { success: true }

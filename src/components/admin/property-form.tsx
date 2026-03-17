@@ -95,16 +95,17 @@ export function PropertyForm({ property }: PropertyFormProps) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-4 max-w-2xl">
       {/* Dados Basicos */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Dados Basicos</CardTitle>
+      <Card className="overflow-hidden border-border/50 shadow-sm">
+        <CardHeader className="bg-muted/30 border-b border-border/50 pb-4">
+          <CardTitle className="text-lg font-medium">Dados Basicos</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-6 pt-6">
           <div className="space-y-2">
             <Label htmlFor="title">Titulo</Label>
             <Input
               id="title"
               placeholder="Ex: Casa 3 quartos no Jardim America"
+              className="bg-background transition-colors focus-visible:ring-primary/50"
               {...register('title')}
             />
             {errors.title && (
@@ -118,6 +119,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
               id="description"
               placeholder="Descreva o imovel..."
               rows={4}
+              className="bg-background transition-colors focus-visible:ring-primary/50"
               {...register('description')}
             />
             {errors.description && (
@@ -138,7 +140,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
                   onValueChange={(value) =>
                     field.onChange(value ? parseFloat(value) : undefined)
                   }
-                  className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-base shadow-xs transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                   placeholder="R$ 0,00"
                 />
               )}
@@ -176,11 +178,11 @@ export function PropertyForm({ property }: PropertyFormProps) {
       </Card>
 
       {/* Caracteristicas */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Caracteristicas</CardTitle>
+      <Card className="overflow-hidden border-border/50 shadow-sm">
+        <CardHeader className="bg-muted/30 border-b border-border/50 pb-4">
+          <CardTitle className="text-lg font-medium">Caracteristicas</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-6 pt-6">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="bedrooms">Quartos</Label>
@@ -189,6 +191,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
                 type="number"
                 min={0}
                 max={20}
+                className="bg-background transition-colors focus-visible:ring-primary/50"
                 {...register('bedrooms', { valueAsNumber: true })}
               />
               {errors.bedrooms && (
@@ -203,6 +206,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
                 type="number"
                 min={0}
                 max={20}
+                className="bg-background transition-colors focus-visible:ring-primary/50"
                 {...register('bathrooms', { valueAsNumber: true })}
               />
               {errors.bathrooms && (
@@ -217,6 +221,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
                 type="number"
                 min={0}
                 max={20}
+                className="bg-background transition-colors focus-visible:ring-primary/50"
                 {...register('parking_spaces', { valueAsNumber: true })}
               />
               {errors.parking_spaces && (
@@ -231,6 +236,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
                 type="number"
                 min={0}
                 step="0.01"
+                className="bg-background transition-colors focus-visible:ring-primary/50"
                 {...register('area', { valueAsNumber: true })}
               />
               {errors.area && (
@@ -267,17 +273,18 @@ export function PropertyForm({ property }: PropertyFormProps) {
       </Card>
 
       {/* Localizacao */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Localizacao</CardTitle>
+      <Card className="overflow-hidden border-border/50 shadow-sm">
+        <CardHeader className="bg-muted/30 border-b border-border/50 pb-4">
+          <CardTitle className="text-lg font-medium">Localizacao</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-6 pt-6">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="address">Endereco</Label>
               <Input
                 id="address"
                 placeholder="Rua, numero..."
+                className="bg-background transition-colors focus-visible:ring-primary/50"
                 {...register('address')}
               />
               {errors.address && (
@@ -290,10 +297,39 @@ export function PropertyForm({ property }: PropertyFormProps) {
               <Input
                 id="neighborhood"
                 placeholder="Nome do bairro"
+                className="bg-background transition-colors focus-visible:ring-primary/50"
                 {...register('neighborhood')}
               />
               {errors.neighborhood && (
                 <p className="text-sm text-red-500">{errors.neighborhood.message}</p>
+              )}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="city">Cidade</Label>
+              <Input
+                id="city"
+                placeholder="Ex: Formosa"
+                className="bg-background transition-colors focus-visible:ring-primary/50"
+                {...register('city')}
+              />
+              {errors.city && (
+                <p className="text-sm text-red-500">{errors.city.message}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="state">Estado</Label>
+              <Input
+                id="state"
+                placeholder="Ex: GO"
+                className="bg-background transition-colors focus-visible:ring-primary/50"
+                {...register('state')}
+              />
+              {errors.state && (
+                <p className="text-sm text-red-500">{errors.state.message}</p>
               )}
             </div>
           </div>
@@ -310,11 +346,11 @@ export function PropertyForm({ property }: PropertyFormProps) {
       </Card>
 
       {/* Status */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Status</CardTitle>
+      <Card className="overflow-hidden border-border/50 shadow-sm">
+        <CardHeader className="bg-muted/30 border-b border-border/50 pb-4">
+          <CardTitle className="text-lg font-medium">Status</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-6 pt-6">
           <div className="space-y-2">
             <Label htmlFor="status">Status</Label>
             <Controller

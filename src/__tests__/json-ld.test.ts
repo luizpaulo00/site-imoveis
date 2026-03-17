@@ -20,7 +20,7 @@ const baseProperty: PropertyWithImages = {
   area: 120,
   address: 'Rua Teste 123',
   neighborhood: 'Centro',
-  city: 'Goiania',
+  city: 'Formosa',
   state: 'GO',
   latitude: -16.686,
   longitude: -49.264,

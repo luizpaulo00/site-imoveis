@@ -2,6 +2,7 @@
 
 import { createClient } from '@/lib/supabase/server'
 import { propertySchema, type PropertyFormData } from '@/lib/validations/property'
+import { uuidSchema } from '@/lib/validations/uuid'
 import { revalidatePath } from 'next/cache'
 
 export async function createProperty(
@@ -14,6 +15,9 @@ export async function createProperty(
   }
 
   const supabase = await createClient()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Nao autorizado' }
+
   const { data: result, error } = await supabase
     .from('properties')
     .insert(parsed.data)
@@ -21,6 +25,7 @@ export async function createProperty(
     .single()
 
   if (error || !result) {
+    console.error('Supabase Insert Error:', error?.message)
     return { error: 'Erro ao criar imovel' }
   }
 
@@ -32,6 +37,9 @@ export async function updateProperty(
   id: string,
   data: PropertyFormData
 ): Promise<{ success: true } | { error: string }> {
+  const idValidation = uuidSchema.safeParse(id)
+  if (!idValidation.success) return { error: 'ID invalido' }
+
   const parsed = propertySchema.safeParse(data)
 
   if (!parsed.success) {
@@ -39,12 +47,16 @@ export async function updateProperty(
   }
 
   const supabase = await createClient()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Nao autorizado' }
+
   const { error } = await supabase
     .from('properties')
     .update(parsed.data)
     .eq('id', id)
 
   if (error) {
+    console.error('Supabase Update Error:', error?.message)
     return { error: 'Erro ao atualizar imovel' }
   }
 
@@ -55,7 +67,13 @@ export async function updateProperty(
 export async function deleteProperty(
   id: string
 ): Promise<{ success: true } | { error: string }> {
+  const idValidation = uuidSchema.safeParse(id)
+  if (!idValidation.success) return { error: 'ID invalido' }
+
   const supabase = await createClient()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Nao autorizado' }
+
   const { error } = await supabase
     .from('properties')
     .delete()
