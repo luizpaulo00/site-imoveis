@@ -193,22 +193,21 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INFR-01 | Phase 1 | Complete |
 | INFR-02 | Phase 1 | Complete |
 | INFR-03 | Phase 1 | Complete |
-
-| IMG2-01 | — | Pending |
-| IMG2-02 | — | Pending |
-| CAD-01 | — | Pending |
-| CAD-02 | — | Pending |
-| CAD-03 | — | Pending |
-| PUB-01 | — | Pending |
-| PUB-02 | — | Pending |
-| PUB-03 | — | Pending |
+| IMG2-01 | Phase 6 | Pending |
+| IMG2-02 | Phase 6 | Pending |
+| CAD-01 | Phase 7 | Pending |
+| CAD-02 | Phase 7 | Pending |
+| CAD-03 | Phase 7 | Pending |
+| PUB-01 | Phase 7 | Pending |
+| PUB-02 | Phase 7 | Pending |
+| PUB-03 | Phase 7 | Pending |
 
 **Coverage:**
 - v1 requirements: 50 total (all complete)
 - v1.1 requirements: 8 total
-- Mapped to phases: 0
-- Unmapped: 8
+- Mapped to phases: 8
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-11*
-*Last updated: 2026-03-25 after v1.1 requirements definition*
+*Last updated: 2026-03-25 after v1.1 roadmap creation*

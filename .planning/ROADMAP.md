@@ -12,13 +12,26 @@ This roadmap delivers a mobile-first property showcase site for a solo Brazilian
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation and Auth** - Project scaffolding, database schema, Supabase auth, admin route protection, settings, and infrastructure guardrails
+<details>
+<summary>v1.0 Site Vitrine Completo (Phases 1-5) - SHIPPED 2026-03-14</summary>
+
+- [x] **Phase 1: Foundation and Auth** - Project scaffolding, database schema, Supabase auth, admin route protection, settings, and infrastructure guardrails
 - [x] **Phase 2: Property Management** - Admin CRUD for properties with all fields, status management, featured toggle, and property list view (completed 2026-03-14)
-- [ ] **Phase 3: Image Pipeline** - Multi-image upload with drag-and-drop, client-side compression, reorder, cover selection, and optimized variant generation
+- [x] **Phase 3: Image Pipeline** - Multi-image upload with drag-and-drop, client-side compression, reorder, cover selection, and optimized variant generation
 - [x] **Phase 4: Public Site and WhatsApp** - Property listing with filters, detail page with gallery and map, dynamic OG tags, sticky WhatsApp button, and share functionality (completed 2026-03-14)
 - [x] **Phase 5: Performance and SEO** - Skeleton loading states, lazy loading, Core Web Vitals optimization, JSON-LD structured data, and sitemap (completed 2026-03-14)
 
+</details>
+
+### v1.1 Qualidade de Imagem e Novos Campos (Phases 6-7)
+
+- [ ] **Phase 6: Image Quality** - Reduce compression aggressiveness so property photos retain high resolution and sharpness on the public site
+- [ ] **Phase 7: New Property Fields** - Add "Lote" property type, construction status, and built area to admin form and public display
+
 ## Phase Details
+
+<details>
+<summary>v1.0 Phase Details (Phases 1-5) - SHIPPED 2026-03-14</summary>
 
 ### Phase 1: Foundation and Auth
 **Goal**: The broker can log in to a protected admin area, configure basic site settings, and the infrastructure is reliable on free tiers
@@ -30,12 +43,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Admin can log out from any admin page and is returned to login
   4. Admin can set the WhatsApp number and site/broker name in a settings page
   5. Supabase project does not pause due to inactivity (keep-alive cron is running)
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold Next.js 15 project with Supabase clients, auth middleware, DB schema, and test infra
-- [ ] 01-02-PLAN.md — Login page, auth Server Actions, admin layout with sidebar and logout
-- [ ] 01-03-PLAN.md — Settings page (WhatsApp, site name, broker name), keep-alive cron, storage bucket
+- [x] 01-01-PLAN.md — Scaffold Next.js 15 project with Supabase clients, auth middleware, DB schema, and test infra
+- [x] 01-02-PLAN.md — Login page, auth Server Actions, admin layout with sidebar and logout
+- [x] 01-03-PLAN.md — Settings page (WhatsApp, site name, broker name), keep-alive cron, storage bucket
 
 ### Phase 2: Property Management
 **Goal**: The broker can create, edit, and manage all property information through an intuitive admin interface
@@ -49,9 +62,9 @@ Plans:
 **Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 02-01-PLAN.md — Schema migration, Zod validation, CRUD server actions, currency utility, and dependency installation
-- [ ] 02-02-PLAN.md — Property form with currency mask, Leaflet map picker, create and edit pages
-- [ ] 02-03-PLAN.md — Property list table with status badges, filter tabs, delete confirmation, and empty state
+- [x] 02-01-PLAN.md — Schema migration, Zod validation, CRUD server actions, currency utility, and dependency installation
+- [x] 02-02-PLAN.md — Property form with currency mask, Leaflet map picker, create and edit pages
+- [x] 02-03-PLAN.md — Property list table with status badges, filter tabs, delete confirmation, and empty state
 
 ### Phase 3: Image Pipeline
 **Goal**: The broker can upload and manage property photos that are automatically optimized to stay within free-tier storage limits and produce WhatsApp-ready images
@@ -62,12 +75,12 @@ Plans:
   2. Photos are compressed client-side before upload (raw phone photos reduced to under 400KB)
   3. Admin can reorder photos via drag-and-drop, set one as cover, and delete individual photos with confirmation
   4. System automatically generates optimized variants (thumbnail, card, detail, OG at 1200x630) from each uploaded photo
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 03-01-PLAN.md — Install dependencies, validation schema, image server actions, and client-side compression hook
-- [ ] 03-02-PLAN.md — ImageManager UI (dropzone, sortable grid, thumbnails, cover/delete actions) wired into property edit page
-- [ ] 03-03-PLAN.md — OG image generation (1200x630 client-side) and integration with cover photo flow
+- [x] 03-01-PLAN.md — Install dependencies, validation schema, image server actions, and client-side compression hook
+- [x] 03-02-PLAN.md — ImageManager UI (dropzone, sortable grid, thumbnails, cover/delete actions) wired into property edit page
+- [x] 03-03-PLAN.md — OG image generation (1200x630 client-side) and integration with cover photo flow
 
 ### Phase 4: Public Site and WhatsApp
 **Goal**: Visitors who receive a property link on WhatsApp see a beautiful preview, land on a fast mobile page with large photos, and contact the broker in one tap
@@ -82,9 +95,9 @@ Plans:
 **Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 04-01-PLAN.md — Public layout with brand styling, data queries, and property listing page with cards, filters, and featured section
-- [ ] 04-02-PLAN.md — Property detail page with Swiper photo gallery (fullscreen, zoom, count), specs display, Leaflet map, and status indicators
-- [ ] 04-03-PLAN.md — WhatsApp sticky button, share functionality, and dynamic OG meta tags for WhatsApp link previews
+- [x] 04-01-PLAN.md — Public layout with brand styling, data queries, and property listing page with cards, filters, and featured section
+- [x] 04-02-PLAN.md — Property detail page with Swiper photo gallery (fullscreen, zoom, count), specs display, Leaflet map, and status indicators
+- [x] 04-03-PLAN.md — WhatsApp sticky button, share functionality, and dynamic OG meta tags for WhatsApp link previews
 
 ### Phase 5: Performance and SEO
 **Goal**: The site loads fast on variable mobile connections with no blank screens, and property pages are discoverable by search engines
@@ -98,19 +111,45 @@ Plans:
 **Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 05-00-PLAN.md — Wave 0 test stubs for all Phase 5 verification points
-- [ ] 05-01-PLAN.md — Skeleton loading states, image lazy-loading fixes for LCP, semantic HTML and heading hierarchy
-- [ ] 05-02-PLAN.md — JSON-LD structured data (RealEstateListing), dynamic sitemap.xml, and robots.txt
+- [x] 05-00-PLAN.md — Wave 0 test stubs for all Phase 5 verification points
+- [x] 05-01-PLAN.md — Skeleton loading states, image lazy-loading fixes for LCP, semantic HTML and heading hierarchy
+- [x] 05-02-PLAN.md — JSON-LD structured data (RealEstateListing), dynamic sitemap.xml, and robots.txt
+
+</details>
+
+### Phase 6: Image Quality
+**Goal**: Property photos on the site look sharp and high-resolution, suitable for a real estate showcase where photos sell properties
+**Depends on**: Phase 5 (existing image pipeline)
+**Requirements**: IMG2-01, IMG2-02
+**Success Criteria** (what must be TRUE):
+  1. Admin uploads a phone photo and the resulting image retains enough resolution and detail to clearly show room features, finishes, and textures (no visible pixelation or blur on mobile screens)
+  2. Photos displayed on the public property detail page are crisp and sharp at full gallery width on both mobile and desktop viewports
+  3. Compressed file sizes remain reasonable for mobile loading (target under 1.5MB per photo) while preserving visual quality
+**Plans**: TBD
+
+### Phase 7: New Property Fields
+**Goal**: The broker can categorize properties with type "Lote", mark construction status, and specify built area -- and visitors see all of this on the public site
+**Depends on**: Phase 6
+**Requirements**: CAD-01, CAD-02, CAD-03, PUB-01, PUB-02, PUB-03
+**Success Criteria** (what must be TRUE):
+  1. Admin can select "Lote" as property type in the property form (alongside existing Casa and Apartamento options)
+  2. Admin can set a property's construction status to "Em construcao" or "Pronto para morar" via the property form
+  3. Admin can enter the built area (area construida) as a separate numeric field from the total area
+  4. Visitor sees the property type "Lote" displayed on cards and on the property detail page, and can filter by it
+  5. Visitor sees construction status and built area on the property detail page when those fields are filled
+**Plans**: TBD
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Foundation and Auth | 2/3 | In Progress|  |
-| 2. Property Management | 3/3 | Complete   | 2026-03-14 |
-| 3. Image Pipeline | 2/3 | In Progress|  |
-| 4. Public Site and WhatsApp | 3/3 | Complete   | 2026-03-14 |
-| 5. Performance and SEO | 3/3 | Complete   | 2026-03-14 |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. Foundation and Auth | v1.0 | 3/3 | Complete | 2026-03-14 |
+| 2. Property Management | v1.0 | 3/3 | Complete | 2026-03-14 |
+| 3. Image Pipeline | v1.0 | 3/3 | Complete | 2026-03-14 |
+| 4. Public Site and WhatsApp | v1.0 | 3/3 | Complete | 2026-03-14 |
+| 5. Performance and SEO | v1.0 | 3/3 | Complete | 2026-03-14 |
+| 6. Image Quality | v1.1 | 0/? | Not started | - |
+| 7. New Property Fields | v1.1 | 0/? | Not started | - |
