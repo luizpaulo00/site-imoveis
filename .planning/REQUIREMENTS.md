@@ -84,6 +84,27 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **INFR-02**: All property photos pre-optimized at upload (no reliance on Vercel image optimization quota)
 - [x] **INFR-03**: Supabase RLS policies enforce public read / admin-only write
 
+## v1.1 Requirements
+
+Requirements for milestone v1.1 — Qualidade de Imagem e Novos Campos.
+
+### Imagens
+
+- [ ] **IMG2-01**: Fotos do imovel preservam qualidade alta no upload (resolucao e compressao adequadas para vitrine imobiliaria)
+- [ ] **IMG2-02**: Fotos exibidas no site publico com qualidade nitida e sem pixelizacao
+
+### Cadastro
+
+- [ ] **CAD-01**: Admin pode selecionar "Lote" como tipo de imovel (alem de Casa e Apartamento)
+- [ ] **CAD-02**: Admin pode definir status de construcao do imovel: "Em construcao" ou "Pronto para morar"
+- [ ] **CAD-03**: Admin pode informar a area construida do imovel (separada da area total)
+
+### Site Publico
+
+- [ ] **PUB-01**: Visitante ve o tipo "Lote" nos cards e na pagina do imovel
+- [ ] **PUB-02**: Visitante ve o status de construcao na pagina do imovel
+- [ ] **PUB-03**: Visitante ve a area construida na pagina do imovel
+
 ## v2 Requirements
 
 Deferred to future release. Tracked but not in current roadmap.
@@ -173,11 +194,21 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INFR-02 | Phase 1 | Complete |
 | INFR-03 | Phase 1 | Complete |
 
+| IMG2-01 | — | Pending |
+| IMG2-02 | — | Pending |
+| CAD-01 | — | Pending |
+| CAD-02 | — | Pending |
+| CAD-03 | — | Pending |
+| PUB-01 | — | Pending |
+| PUB-02 | — | Pending |
+| PUB-03 | — | Pending |
+
 **Coverage:**
-- v1 requirements: 50 total
-- Mapped to phases: 50
-- Unmapped: 0
+- v1 requirements: 50 total (all complete)
+- v1.1 requirements: 8 total
+- Mapped to phases: 0
+- Unmapped: 8
 
 ---
 *Requirements defined: 2026-03-11*
-*Last updated: 2026-03-11 after roadmap creation*
+*Last updated: 2026-03-25 after v1.1 requirements definition*
