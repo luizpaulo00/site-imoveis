@@ -68,7 +68,7 @@ export function useImageUpload(propertyId: string) {
           const blob = await heic2any({
             blob: file,
             toType: 'image/jpeg',
-            quality: 0.85,
+            quality: 0.92,
           })
           const convertedBlob = Array.isArray(blob) ? blob[0] : blob
           processedFile = new File(
@@ -83,11 +83,12 @@ export function useImageUpload(propertyId: string) {
         const imageCompression = (await import('browser-image-compression'))
           .default
         const compressed = await imageCompression(processedFile, {
-          maxSizeMB: 0.4,
-          maxWidthOrHeight: 800,
-          initialQuality: 0.8,
+          maxSizeMB: 2,
+          maxWidthOrHeight: 2048,
+          initialQuality: 0.85,
           useWebWorker: true,
           fileType: 'image/jpeg',
+          preserveExif: false,
           onProgress: (p: number) => {
             // Map compression progress to 10-80% range
             const mappedProgress = 10 + Math.round(p * 0.7)

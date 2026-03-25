@@ -43,6 +43,12 @@ function chainable() {
 
 vi.mock('@/lib/supabase/server', () => ({
   createClient: vi.fn().mockResolvedValue({
+    auth: {
+      getUser: vi.fn().mockResolvedValue({
+        data: { user: { id: 'test-user' } },
+        error: null,
+      }),
+    },
     from: (table: string) => {
       if (table === 'properties') {
         return {
@@ -106,13 +112,13 @@ describe('Property Server Actions', () => {
   describe('createProperty', () => {
     it('creates property with valid data and returns success with id', async () => {
       mockSingle.mockResolvedValue({
-        data: { id: 'uuid-123' },
+        data: { id: 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11' },
         error: null,
       })
 
       const result = await createProperty(validPropertyData)
 
-      expect(result).toEqual({ success: true, id: 'uuid-123' })
+      expect(result).toEqual({ success: true, id: 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11' })
       expect(mockInsert).toHaveBeenCalled()
       expect(revalidatePath).toHaveBeenCalledWith('/admin/imoveis')
     })
@@ -140,16 +146,16 @@ describe('Property Server Actions', () => {
     it('updates property with valid data and returns success', async () => {
       mockEq.mockResolvedValue({ error: null })
 
-      const result = await updateProperty('uuid-123', validPropertyData)
+      const result = await updateProperty('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', validPropertyData)
 
       expect(result).toEqual({ success: true })
       expect(mockUpdate).toHaveBeenCalled()
-      expect(mockEq).toHaveBeenCalledWith('id', 'uuid-123')
+      expect(mockEq).toHaveBeenCalledWith('id', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11')
       expect(revalidatePath).toHaveBeenCalledWith('/admin/imoveis')
     })
 
     it('returns error with invalid data', async () => {
-      const result = await updateProperty('uuid-123', { title: '' } as typeof validPropertyData)
+      const result = await updateProperty('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', { title: '' } as typeof validPropertyData)
 
       expect(result).toEqual({ error: 'Dados invalidos' })
       expect(mockUpdate).not.toHaveBeenCalled()
@@ -158,7 +164,7 @@ describe('Property Server Actions', () => {
     it('returns error when Supabase update fails', async () => {
       mockEq.mockResolvedValue({ error: { message: 'DB error' } })
 
-      const result = await updateProperty('uuid-123', validPropertyData)
+      const result = await updateProperty('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', validPropertyData)
 
       expect(result).toHaveProperty('error')
     })
@@ -168,18 +174,18 @@ describe('Property Server Actions', () => {
     it('deletes property and returns success', async () => {
       mockEq.mockResolvedValue({ error: null })
 
-      const result = await deleteProperty('uuid-123')
+      const result = await deleteProperty('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11')
 
       expect(result).toEqual({ success: true })
       expect(mockDelete).toHaveBeenCalled()
-      expect(mockEq).toHaveBeenCalledWith('id', 'uuid-123')
+      expect(mockEq).toHaveBeenCalledWith('id', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11')
       expect(revalidatePath).toHaveBeenCalledWith('/admin/imoveis')
     })
 
     it('returns error when Supabase delete fails', async () => {
       mockEq.mockResolvedValue({ error: { message: 'DB error' } })
 
-      const result = await deleteProperty('uuid-123')
+      const result = await deleteProperty('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11')
 
       expect(result).toHaveProperty('error')
     })
@@ -221,13 +227,13 @@ describe('Property Server Actions', () => {
 
   describe('getProperty', () => {
     it('returns single property by id', async () => {
-      const property = { ...validPropertyData, id: 'uuid-123' }
+      const property = { ...validPropertyData, id: 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11' }
       mockSingle.mockResolvedValue({ data: property, error: null })
 
-      const result = await getProperty('uuid-123')
+      const result = await getProperty('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11')
 
       expect(result).toEqual(property)
-      expect(mockEq).toHaveBeenCalledWith('id', 'uuid-123')
+      expect(mockEq).toHaveBeenCalledWith('id', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11')
     })
 
     it('returns null when property not found', async () => {

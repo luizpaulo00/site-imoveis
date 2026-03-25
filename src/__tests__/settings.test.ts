@@ -5,18 +5,33 @@ import { formatPhone } from '@/lib/utils/phone'
 // Mock Supabase server client
 const mockSelect = vi.fn()
 const mockSingle = vi.fn()
-const mockUpsert = vi.fn()
+const mockUpdate = vi.fn()
+const mockInsert = vi.fn()
+const mockEq = vi.fn()
 
 vi.mock('@/lib/supabase/server', () => ({
   createClient: vi.fn().mockResolvedValue({
+    auth: {
+      getUser: vi.fn().mockResolvedValue({
+        data: { user: { id: 'test-user' } },
+        error: null,
+      }),
+    },
     from: (table: string) => {
       if (table === 'site_settings') {
         return {
           select: (...args: unknown[]) => {
             mockSelect(...args)
-            return { single: () => mockSingle() }
+            return {
+              single: () => mockSingle(),
+              limit: () => ({ single: () => mockSingle() }),
+            }
           },
-          upsert: (data: unknown) => mockUpsert(data),
+          update: (data: unknown) => {
+            mockUpdate(data)
+            return { eq: (...args: unknown[]) => mockEq(...args) }
+          },
+          insert: (data: unknown) => mockInsert(data),
         }
       }
       return {}
@@ -67,8 +82,11 @@ describe('Settings Server Actions', () => {
   })
 
   describe('saveSettings', () => {
-    it('upserts valid data to site_settings table', async () => {
-      mockUpsert.mockResolvedValue({ error: null })
+    it('updates existing settings row', async () => {
+      // First call: select('id').limit(1).single() returns existing row
+      mockSingle
+        .mockResolvedValueOnce({ data: { id: 'settings-1' }, error: null })
+      mockEq.mockResolvedValue({ error: null })
 
       const data = {
         whatsapp: '(61) 99999-9999',
@@ -79,7 +97,7 @@ describe('Settings Server Actions', () => {
       const result = await saveSettings(data)
 
       expect(result).toEqual({ success: true })
-      expect(mockUpsert).toHaveBeenCalledWith(
+      expect(mockUpdate).toHaveBeenCalledWith(
         expect.objectContaining({
           whatsapp: '(61) 99999-9999',
           site_name: 'Jander Imoveis',
@@ -99,11 +117,13 @@ describe('Settings Server Actions', () => {
       const result = await saveSettings(data)
 
       expect(result).toEqual({ error: 'Dados invalidos. Verifique os campos.' })
-      expect(mockUpsert).not.toHaveBeenCalled()
+      expect(mockUpdate).not.toHaveBeenCalled()
     })
 
-    it('returns error when Supabase upsert fails', async () => {
-      mockUpsert.mockResolvedValue({ error: { message: 'DB error' } })
+    it('returns error when Supabase update fails', async () => {
+      mockSingle
+        .mockResolvedValueOnce({ data: { id: 'settings-1' }, error: null })
+      mockEq.mockResolvedValue({ error: { message: 'DB error' } })
 
       const data = {
         whatsapp: '(61) 99999-9999',

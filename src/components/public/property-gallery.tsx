@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Zoom, Navigation, Pagination } from 'swiper/modules'
 import { X, ImageIcon, Camera } from 'lucide-react'
@@ -58,11 +59,14 @@ export function PropertyGallery({ images, propertyTitle }: PropertyGalleryProps)
           className="aspect-[16/9] w-full overflow-hidden [&_.swiper-pagination]{bg-black/60;text-white;px-3;py-1;rounded-full;w-auto;left-auto;right-4;bottom-4;font-size:0.875rem;font-weight:600}"
         >
           {images.map((img, index) => (
-            <SwiperSlide key={img.id}>
-              <img
+            <SwiperSlide key={img.id} className="relative">
+              <Image
                 src={getImageUrl(img.storage_path)}
                 alt={index === 0 && propertyTitle ? propertyTitle : ''}
-                className="h-full w-full object-cover"
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority={index === 0}
                 loading={index === 0 ? 'eager' : 'lazy'}
               />
             </SwiperSlide>
