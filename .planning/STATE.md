@@ -1,36 +1,34 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: executing
-stopped_at: Completed 05-01-PLAN.md
-last_updated: "2026-03-14T14:42:08.323Z"
-last_activity: 2026-03-14 -- Completed 05-02 SEO Structured Data & Sitemap
+milestone: v1.1
+milestone_name: Qualidade de Imagem e Novos Campos
+status: defining
+stopped_at: null
+last_updated: "2026-03-25"
+last_activity: 2026-03-25 -- Milestone v1.1 started
 progress:
-  total_phases: 5
-  completed_phases: 5
-  total_plans: 15
-  completed_plans: 15
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-11)
+See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** Quando o cliente recebe um link de imovel no WhatsApp, ele ve um preview bonito, abre num site rapido e mobile-first com fotos grandes, e fala com o corretor em um toque.
-**Current focus:** Phase 5 - Performance and SEO
+**Current focus:** Milestone v1.1 - Qualidade de Imagem e Novos Campos
 
 ## Current Position
 
-Phase: 5 of 5 (Performance and SEO)
-Plan: 3 of 3
-Status: In Progress
-Last activity: 2026-03-14 -- Completed 05-02 SEO Structured Data & Sitemap
-
-Progress: [██████████] 100%
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-03-25 — Milestone v1.1 started
 
 ## Performance Metrics
 

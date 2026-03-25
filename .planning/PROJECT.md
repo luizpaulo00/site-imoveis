@@ -12,28 +12,31 @@ Quando o cliente do corretor recebe um link de imóvel no WhatsApp, ele vê um p
 
 ### Validated
 
-<!-- Shipped and confirmed valuable. -->
+<!-- Shipped and confirmed valuable. v1.0 -->
 
-(None yet — ship to validate)
+- ✓ Site mobile-first com cards de imóveis visualmente atrativos — v1.0
+- ✓ Página individual do imóvel com galeria de fotos fullscreen, descrição, specs, mapa, botão WhatsApp sticky — v1.0
+- ✓ Filtros: tipo de imóvel, faixa de preço, quartos — v1.0
+- ✓ Open Graph tags dinâmicas por imóvel — v1.0
+- ✓ Painel admin com login email/senha — v1.0
+- ✓ CRUD de imóveis: título, descrição, preço, tipo, quartos, banheiros, área, endereço, localização no mapa — v1.0
+- ✓ Upload de múltiplas fotos com drag-and-drop, reordenar, definir capa, deletar individual — v1.0
+- ✓ Compressão/redimensionamento automático de imagens no upload — v1.0
+- ✓ Status do imóvel: disponível, reservado, vendido — v1.0
+- ✓ Destacar imóveis na home — v1.0
+- ✓ Dashboard admin com contadores — v1.0
+- ✓ Número de WhatsApp configurável pelo admin — v1.0
+- ✓ Carregamento rápido, loading states, sem telas brancas — v1.0
+- ✓ Mensagem pré-preenchida no WhatsApp com nome do imóvel e link — v1.0
 
 ### Active
 
-<!-- Current scope. Building toward these. -->
+<!-- Current scope: v1.1 — Qualidade de Imagem e Novos Campos -->
 
-- [ ] Site mobile-first com cards de imóveis visualmente atrativos (foto, preço, localização, specs)
-- [ ] Página individual do imóvel com galeria de fotos fullscreen, descrição, specs, mapa, botão WhatsApp sticky
-- [ ] Filtros: tipo de imóvel, faixa de preço, quartos
-- [ ] Open Graph tags dinâmicas por imóvel (preview no WhatsApp com foto + título + preço)
-- [ ] Painel admin com login email/senha (único usuário)
-- [ ] CRUD de imóveis: título, descrição, preço, tipo, quartos, banheiros, área, endereço, localização no mapa
-- [ ] Upload de múltiplas fotos (até 15) com drag-and-drop, reordenar, definir capa, deletar individual
-- [ ] Compressão/redimensionamento automático de imagens no upload
-- [ ] Status do imóvel: disponível, reservado, vendido
-- [ ] Destacar imóveis na home
-- [ ] Dashboard admin com contadores (total, disponíveis, vendidos)
-- [ ] Número de WhatsApp configurável pelo admin
-- [ ] Carregamento rápido, loading states, sem telas brancas
-- [ ] Mensagem pré-preenchida no WhatsApp com nome do imóvel e link
+- [ ] Qualidade de imagem preservada no upload (compressão menos agressiva, resolução alta)
+- [ ] Tipo "Lote" como opção de tipo de imóvel
+- [ ] Status de construção do imóvel: "Em construção" ou "Pronto para morar"
+- [ ] Campo de área construída separado da área total
 
 ### Out of Scope
 
@@ -94,5 +97,15 @@ Quando o cliente do corretor recebe um link de imóvel no WhatsApp, ele vê um p
 
 **Logo:** Monograma "JV" com silhueta de casa. Variantes: redondo, horizontal, vertical. SVGs em `SVG/`.
 
+## Current Milestone: v1.1 Qualidade de Imagem e Novos Campos
+
+**Goal:** Melhorar a qualidade das fotos no site e adicionar campos essenciais (lote, status de construção, área construída) para o catálogo do corretor.
+
+**Target features:**
+- Qualidade de imagem preservada no upload (compressão atual muito agressiva: 0.4MB/800px)
+- Tipo "Lote" como opção de imóvel
+- Status de construção (em construção / pronto para morar)
+- Área construída como campo separado
+
 ---
-*Last updated: 2026-03-13 after brand identity integration*
+*Last updated: 2026-03-25 after milestone v1.1 definition*
