@@ -278,7 +278,7 @@ test.describe("4-10. Admin Flow Completo", () => {
     await page.getByLabel("Quartos").fill("3");
     await page.getByLabel("Banheiros").fill("2");
     await page.getByLabel("Vagas de garagem").fill("2");
-    await page.getByLabel("Area (m2)").fill("120");
+    await page.getByLabel("Area total (m2)").fill("120");
 
     // Condicao = Novo
     await selectOption(page, "condition", "Novo");

@@ -12,7 +12,7 @@ export interface PublicProperty {
   id: string
   title: string
   price: number | null
-  property_type: 'casa' | 'apartamento' | null
+  property_type: 'casa' | 'apartamento' | 'lote' | null
   bedrooms: number | null
   bathrooms: number | null
   area: number | null

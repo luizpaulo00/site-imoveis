@@ -192,3 +192,12 @@ CREATE POLICY "Authenticated users can delete property images"
 -- ============================================
 ALTER TABLE public.properties ADD COLUMN IF NOT EXISTS parking_spaces INT;
 ALTER TABLE public.properties ADD COLUMN IF NOT EXISTS condition TEXT CHECK (condition IN ('novo', 'usado'));
+
+-- ============================================
+-- Phase 6 Migration: New property fields
+-- ============================================
+-- Add 'lote' to property_type options (no constraint exists, TEXT field)
+-- Add construction_status: em_construcao | pronto_para_morar
+ALTER TABLE public.properties ADD COLUMN IF NOT EXISTS construction_status TEXT CHECK (construction_status IN ('em_construcao', 'pronto_para_morar'));
+-- Add built_area (area construida) separate from area (area total)
+ALTER TABLE public.properties ADD COLUMN IF NOT EXISTS built_area NUMERIC(10,2);

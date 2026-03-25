@@ -47,7 +47,7 @@ export function PropertyFilters({
             Tipo
           </label>
           <div className="flex flex-wrap gap-2">
-            {['Todos', 'Casa', 'Apartamento'].map((t) => {
+            {['Todos', 'Casa', 'Apartamento', 'Lote'].map((t) => {
               const value = t === 'Todos' ? null : t.toLowerCase()
               const isActive = filters.type === value
               return (

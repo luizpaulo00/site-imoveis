@@ -19,11 +19,17 @@ interface PropertyDetailProps {
 const typeLabels: Record<string, string> = {
   casa: 'Casa',
   apartamento: 'Apartamento',
+  lote: 'Lote',
 }
 
 const conditionLabels: Record<string, string> = {
   novo: 'Novo',
   usado: 'Usado',
+}
+
+const constructionStatusLabels: Record<string, string> = {
+  em_construcao: 'Em construcao',
+  pronto_para_morar: 'Pronto para morar',
 }
 
 const statusBannerConfig = {
@@ -49,7 +55,8 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
     { icon: Bed, value: property.bedrooms, label: 'quartos' },
     { icon: Bath, value: property.bathrooms, label: 'banheiros' },
     { icon: Car, value: property.parking_spaces, label: 'vagas' },
-    { icon: Ruler, value: property.area, label: 'm²', suffix: true },
+    { icon: Ruler, value: property.area, label: 'm² total', suffix: true },
+    { icon: Ruler, value: property.built_area, label: 'm² construida', suffix: true },
   ].filter((s) => s.value != null && s.value > 0)
 
   const fullAddress = [
@@ -162,6 +169,17 @@ export function PropertyDetail({ property, settings }: PropertyDetailProps) {
                     <td className="px-5 py-3.5 font-medium text-[#0D3B3B]">
                       {conditionLabels[property.condition] ??
                         property.condition}
+                    </td>
+                  </tr>
+                )}
+                {property.construction_status && (
+                  <tr className="border-b border-gray-50">
+                    <td className="px-5 py-3.5 font-medium text-gray-500">
+                      Status da construcao
+                    </td>
+                    <td className="px-5 py-3.5 font-medium text-[#0D3B3B]">
+                      {constructionStatusLabels[property.construction_status] ??
+                        property.construction_status}
                     </td>
                   </tr>
                 )}

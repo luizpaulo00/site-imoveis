@@ -29,6 +29,8 @@ export type Property = {
   longitude: number | null
   status: 'disponivel' | 'reservado' | 'vendido'
   condition: 'novo' | 'usado' | null
+  construction_status: 'em_construcao' | 'pronto_para_morar' | null
+  built_area: number | null
   featured: boolean
   created_at: string
   updated_at: string
@@ -72,6 +74,8 @@ export type Database = {
           updated_at?: string
           status?: 'disponivel' | 'reservado' | 'vendido'
           condition?: 'novo' | 'usado' | null
+          construction_status?: 'em_construcao' | 'pronto_para_morar' | null
+          built_area?: number | null
           parking_spaces?: number | null
           featured?: boolean
         }

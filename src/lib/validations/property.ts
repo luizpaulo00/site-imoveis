@@ -11,8 +11,8 @@ export const propertySchema = z.object({
     .positive('Preco deve ser um valor positivo')
     .nullable()
     .optional(),
-  property_type: z.enum(['casa', 'apartamento'], {
-    message: 'Tipo deve ser casa ou apartamento',
+  property_type: z.enum(['casa', 'apartamento', 'lote'], {
+    message: 'Tipo deve ser casa, apartamento ou lote',
   }).nullable().optional(),
   bedrooms: z.coerce
     .number()
@@ -40,6 +40,11 @@ export const propertySchema = z.object({
     .positive('Area deve ser um valor positivo')
     .nullable()
     .optional(),
+  built_area: z.coerce
+    .number()
+    .positive('Area construida deve ser um valor positivo')
+    .nullable()
+    .optional(),
   address: z.string().nullable().optional(),
   neighborhood: z.string().nullable().optional(),
   city: z.string().nullable().optional(),
@@ -64,6 +69,12 @@ export const propertySchema = z.object({
   condition: z
     .enum(['novo', 'usado'], {
       message: 'Condicao deve ser novo ou usado',
+    })
+    .nullable()
+    .optional(),
+  construction_status: z
+    .enum(['em_construcao', 'pronto_para_morar'], {
+      message: 'Status da construcao invalido',
     })
     .nullable()
     .optional(),

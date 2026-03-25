@@ -51,7 +51,9 @@ export function PropertyForm({ property }: PropertyFormProps) {
       bathrooms: undefined,
       parking_spaces: undefined,
       area: undefined,
+      built_area: undefined,
       condition: undefined,
+      construction_status: undefined,
       address: '',
       neighborhood: '',
       latitude: undefined,
@@ -166,6 +168,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
                   <SelectContent>
                     <SelectItem value="casa">Casa</SelectItem>
                     <SelectItem value="apartamento">Apartamento</SelectItem>
+                    <SelectItem value="lote">Lote</SelectItem>
                   </SelectContent>
                 </Select>
               )}
@@ -230,7 +233,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="area">Area (m2)</Label>
+              <Label htmlFor="area">Area total (m2)</Label>
               <Input
                 id="area"
                 type="number"
@@ -241,6 +244,21 @@ export function PropertyForm({ property }: PropertyFormProps) {
               />
               {errors.area && (
                 <p className="text-sm text-red-500">{errors.area.message}</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="built_area">Area construida (m2)</Label>
+              <Input
+                id="built_area"
+                type="number"
+                min={0}
+                step="0.01"
+                className="bg-background transition-colors focus-visible:ring-primary/50"
+                {...register('built_area', { valueAsNumber: true })}
+              />
+              {errors.built_area && (
+                <p className="text-sm text-red-500">{errors.built_area.message}</p>
               )}
             </div>
           </div>
@@ -267,6 +285,31 @@ export function PropertyForm({ property }: PropertyFormProps) {
             />
             {errors.condition && (
               <p className="text-sm text-red-500">{errors.condition.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="construction_status">Status da construcao</Label>
+            <Controller
+              name="construction_status"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  value={field.value ?? ''}
+                  onValueChange={(value) => field.onChange(value || null)}
+                >
+                  <SelectTrigger id="construction_status">
+                    <SelectValue placeholder="Selecione o status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="pronto_para_morar">Pronto para morar</SelectItem>
+                    <SelectItem value="em_construcao">Em construcao</SelectItem>
+                  </SelectContent>
+                </Select>
+              )}
+            />
+            {errors.construction_status && (
+              <p className="text-sm text-red-500">{errors.construction_status.message}</p>
             )}
           </div>
         </CardContent>

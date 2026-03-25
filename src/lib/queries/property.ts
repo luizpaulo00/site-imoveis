@@ -12,12 +12,14 @@ export interface PropertyWithImages {
   title: string
   description: string | null
   price: number | null
-  property_type: 'casa' | 'apartamento' | null
+  property_type: 'casa' | 'apartamento' | 'lote' | null
   condition: 'novo' | 'usado' | null
+  construction_status: 'em_construcao' | 'pronto_para_morar' | null
   bedrooms: number | null
   bathrooms: number | null
   parking_spaces: number | null
   area: number | null
+  built_area: number | null
   address: string | null
   neighborhood: string | null
   city: string | null

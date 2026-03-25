@@ -18,6 +18,8 @@ const baseProperty: PropertyWithImages = {
   bathrooms: 2,
   parking_spaces: 1,
   area: 120,
+  built_area: 90,
+  construction_status: 'pronto_para_morar',
   address: 'Rua Teste 123',
   neighborhood: 'Centro',
   city: 'Formosa',
